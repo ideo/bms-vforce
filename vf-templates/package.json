@@ -1,0 +1,19 @@
+{
+  "name": "vf-templates",
+  "version": "1.0.0",
+  "description": "Figma Template V2 API templates for VForce components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "figma:parse": "figma connect parse",
+    "figma:publish": "figma connect publish",
+    "figma:unpublish": "figma connect unpublish",
+    "figma:create": "figma connect create"
+  },
+  "keywords": ["figma", "templates", "vforce", "visualforce", "salesforce"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@figma/code-connect": "latest"
+  }
+}

@@ -1,0 +1,66 @@
+# Salesforce Visualforce Template Rules
+
+## Core Principles
+- Always use Visualforce markup and Salesforce-specific components
+- Prefer table-based layouts over div-based layouts for data display
+- Use semantic Visualforce components when available
+- Follow Salesforce Lightning Design System (SLDS) patterns when possible
+
+## Layout Rules
+1. **Use tables for data display**: Always use `<apex:pageBlockTable>`, `<apex:dataTable>`, or standard HTML `<table>` elements instead of div grids
+2. **Use Visualforce containers**: Prefer `<apex:pageBlock>`, `<apex:pageBlockSection>` over generic divs
+3. **Form elements**: Use `<apex:form>`, `<apex:inputField>`, `<apex:outputField>` instead of HTML form elements
+
+## Component Preferences
+- Lists/Tables: `<apex:pageBlockTable>` or `<apex:dataTable>`
+- Forms: `<apex:form>` with `<apex:pageBlockSection>`
+- Buttons: `<apex:commandButton>` or `<apex:commandLink>`
+- Input fields: `<apex:inputField>`, `<apex:inputText>`, `<apex:selectList>`
+- Output: `<apex:outputField>`, `<apex:outputText>`, `<apex:outputLink>`
+
+## Data Binding
+- Use merge syntax: `{!objectName.fieldName}`
+- For collections: `<apex:repeat var="item" value="{!collectionName}">`
+- Standard controller: `{!standardController.fieldName}`
+- Custom controller: `{!controllerProperty}`
+
+## Styling
+- Use SLDS classes: `slds-*` classes for Lightning Experience compatibility
+- Avoid inline styles when possible
+- Use `<apex:stylesheet>` for custom CSS
+- Leverage `<apex:includeScript>` for JavaScript
+
+## Security
+- Always use `escape="true"` for user input display
+- Use `<apex:outputText escape="false">` only when HTML is intentional
+- Validate all user inputs in controller methods
+
+## Performance
+- Use `rendered="{!condition}"` to conditionally render components
+- Minimize SOQL queries in getter methods
+- Use view state efficiently with `transient` keyword in controllers
+
+## Template Structure
+```
+<apex:page standardController="ObjectName" extensions="ControllerExtension">
+  <apex:form>
+    <apex:pageBlock title="Block Title">
+      <apex:pageBlockSection title="Section Title">
+        <!-- Content here -->
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>
+```
+
+## Common Patterns
+- Master-Detail relationships: Use `<apex:relatedList>`
+- Record editing: Use `<apex:inputField>` with standard controller
+- Custom actions: Use `<apex:commandButton action="{!customMethod}"`
+- Navigation: Use `<apex:commandLink>` or `PageReference` returns
+
+## Avoid
+- Generic HTML divs for data display (use tables/pageBlocks instead)
+- Inline JavaScript (use static resources)
+- Direct database access in pages (use controllers)
+- Hardcoded IDs or values (use custom settings/metadata)

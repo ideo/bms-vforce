@@ -1,0 +1,14 @@
+{
+  "codeConnect": {
+    "parser": "html",
+    "interactiveSetupFigmaFileUrl": "https://www.figma.com/file/...yourDesignFile",
+    "include": ["**/*.figma.js", "**/*.figma.template.js", "**/*.figma.ts", "**/template-dynamic.figma.ts"],
+    "exclude": [],
+    "visualforce": {
+      "preferTables": true,
+      "useApexComponents": true,
+      "escapingDefault": true,
+      "sldsStyling": true
+    }
+  }
+}
