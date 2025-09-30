@@ -4,23 +4,59 @@ This directory contains Figma Template V2 API templates specifically designed fo
 
 ## Quick Start
 
+### 1. Get Your Figma Token
+
+Go to [Figma Settings → Personal Access Tokens](https://www.figma.com/developers/api#access-tokens)
+
+**Required Permissions:**
+- ✅ **File content: Read**
+- ✅ **Code Connect: Write**
+
 ```bash
-# 1. Set your Figma token (get it from https://figma.com/developers/api#access-tokens)
-export FIGMA_ACCESS_TOKEN="your_token_here"
-
-# 2. Install dependencies
-npm install
-
-# 3. Test your templates locally
-npm run figma:parse
-
-# 4. Publish to Figma
-npm run figma:publish
-
-# 5. View in Figma: Open your file → Dev Mode → Select component → See Visualforce code
+# Set your token (add to ~/.zshrc to persist)
+export FIGMA_ACCESS_TOKEN="figd_your_token_here"
 ```
 
-**Create new template:** `npm run figma:create`
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Create Visualforce Templates (via Claude in Cursor)
+
+**This is our recommended workflow:**
+
+1. **In Figma:** Select a component → Right-click → "Copy link to selection"
+
+2. **In Cursor:** Open this chat (Cmd+L) and paste:
+   ```
+   @https://www.figma.com/design/YOUR_FILE_URL?node-id=XXX-XXX
+   
+   Create a Visualforce email template for this component
+   ```
+
+3. **Claude will:**
+   - Fetch the component structure from Figma API
+   - Parse layer names using the naming conventions
+   - Generate proper Visualforce code with `<apex:>` components
+   - Create the `.figma.ts` file
+   - Publish it to Figma
+
+4. **View in Figma:** Open your file → Dev Mode → Select component → See generated code
+
+### 4. Manual Workflow (if needed)
+
+```bash
+# Test templates locally
+npm run figma:parse
+
+# Publish to Figma
+npm run figma:publish
+
+# Create new template stub (requires manual editing)
+npm run figma:create "figma_url"
+```
 
 ## Template Rules
 
