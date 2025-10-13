@@ -197,80 +197,110 @@
                         </table>
 
 
-                        <!-- Patient Details: single-row (pill), 100% width -->
-                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:0; padding:4px 0;">
-                        <tr>
-                            <td align="center" style="padding:0;">
-                            <!-- Outer pill -->
-                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
-                                    style="background-color:var(--white); border-radius:8px;">
-                                <tr>
-                                <td style="padding:0px 0px;">
-                                    <!-- Four columns in one row -->
-                                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <!-- Patient Details: single-row (pill), uniform left-label/right-value columns -->
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:0; padding:4px 0;">
+                            <tr>
+                                <td align="center" style="padding:0;">
+                                <!-- Outer pill -->
+                                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:var(--white); border-radius:8px;">
                                     <tr>
-                                        <!-- Enrollment ID (25% of total) -->
-                                        <td width="25%" valign="middle" style="padding:2px 6px; white-space:nowrap;">
-                                        <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
-                                            Enrollment ID
-                                        </span>
-                                        &nbsp;&nbsp;
-                                        <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
-                                            ENR-013411
-                                        </span>
-                                        </td>
+                                    <td style="padding:0;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr>
 
-                                        <!-- JOIN ID (25% of total) -->
-                                        <td width="25%" valign="middle" style="padding:2px 6px; border-left:2px solid #E2EDF8; white-space:nowrap;">
-                                        <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
-                                            JOIN ID
-                                        </span>
-                                        &nbsp;&nbsp;
-                                        <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
-                                            9P95-51M67
-                                        </span>
-                                        </td>
-
-                                        <!-- Patient Initials (hug content / auto) -->
-                                        <td valign="middle" style="padding:2px 6px; border-left:2px solid #E2EDF8; white-space:nowrap;">
-                                        <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
-                                            Patient Initials
-                                        </span>
-                                        &nbsp;&nbsp;
-                                        <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
-                                            BP
-                                        </span>
-                                        </td>
-
-                                        <!-- Treating Physician (fill remaining) -->
-                                        <td valign="middle" style="padding:2px 6px; border-left:2px solid #E2EDF8;">
-                                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                                            <tr>
-                                            <td style="white-space:nowrap;">
-                                                <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
-                                                Treating Physician
-                                                </span>
+                                            <!-- Enrollment ID (25%) -->
+                                            <td width="25%" valign="middle" style="padding:0 6px; white-space:nowrap;">
+                                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                <tr>
+                                                <td style="padding:4px 0;">
+                                                    <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
+                                                    Enrollment ID
+                                                    </span>
+                                                </td>
+                                                <td align="right" style="padding:4px 0;">
+                                                    <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
+                                                    ENR-013411
+                                                    </span>
+                                                </td>
+                                                </tr>
+                                            </table>
                                             </td>
-                                            <td align="right" style="white-space:nowrap;">
-                                                <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
-                                                Alex Lane
-                                                </span>
+
+                                            <!-- JOIN ID (25%) -->
+                                            <td width="25%" valign="middle" style="padding:0 6px; border-left:2px solid #E2EDF8; white-space:nowrap;">
+                                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                <tr>
+                                                <td style="padding:4px 0;">
+                                                    <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
+                                                    JOIN ID
+                                                    </span>
+                                                </td>
+                                                <td align="right" style="padding:4px 0;">
+                                                    <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
+                                                    9P95-51M67
+                                                    </span>
+                                                </td>
+                                                </tr>
+                                            </table>
                                             </td>
-                                            </tr>
+
+                                            <!-- Patient Initials (true hug-content + fixed 8px gap) -->
+                                            <td width="1" valign="middle"
+                                                nowrap="nowrap"
+                                                style="width:1px; padding:0 6px; border-left:2px solid #E2EDF8; white-space:nowrap;">
+                                            <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+                                                    style="display:inline-table; width:auto;">
+                                                <tr>
+                                                <td style="padding:4px 0; white-space:nowrap;">
+                                                    <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
+                                                    Patient Initials
+                                                    </span>
+                                                </td>
+
+                                                <!-- Reliable 8px spacer -->
+                                                <td style="width:8px; min-width:8px; max-width:8px; line-height:0; font-size:0;">
+                                                    <img src="https://bms-emails.s3.us-east-1.amazonaws.com/spacer-1x1.png"
+                                                        width="8" height="1" alt="" style="display:block;" />
+                                                </td>
+
+                                                <td style="padding:4px 0; white-space:nowrap;">
+                                                    <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
+                                                    BP
+                                                    </span>
+                                                </td>
+                                                </tr>
+                                            </table>
+                                            </td>
+
+
+                                            <!-- Treating Physician (fills remaining) -->
+                                            <td valign="middle" style="padding:0 6px; border-left:2px solid #E2EDF8;">
+                                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                <tr>
+                                                <td style="padding:4px 0; white-space:nowrap;">
+                                                    <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
+                                                    Treating Physician
+                                                    </span>
+                                                </td>
+                                                <td align="right" style="padding:4px 0; white-space:nowrap;">
+                                                    <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
+                                                    Alex Lane
+                                                    </span>
+                                                </td>
+                                                </tr>
+                                            </table>
+                                            </td>
+
+                                        </tr>
                                         </table>
-                                        </td>
+                                    </td>
                                     </tr>
-                                    </table>
-                                    <!-- /Four columns -->
+                                </table>
+                                <!-- /Outer pill -->
                                 </td>
-                                </tr>
+                            </tr>
                             </table>
-                            <!-- /Outer pill -->
-                            </td>
-                        </tr>
-                        </table>
-
-                        <!-- End Patient Details -->
+                            <!-- End Patient Details -->
 
 
                       </td>
@@ -767,43 +797,36 @@
                         </span>
                     </td>
                     
-                    <!-- CTA Button -->
-                    <td valign="middle" align="right" style="padding-left: 16px;">
-                      <table cellpadding="0" cellspacing="0" border="0" style="display: inline-table;">
+                    <!-- CTA Button (32px tall) -->
+                    <td valign="middle" align="right" style="padding-left:16px;">
+                    <table cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
                         <tr>
-                          <td
-                            align="center"
-                            valign="middle"
-                            style="
-                              background-color: var(--light-buttercream);
-                              border-radius: 100px;
-                              padding: 4px 14px;
-                              min-width: 120px;
-                              white-space: nowrap;
-                              height: 32px;
-                            "
-                          >
-                            <a
-                              href="#"
-                              style="
-                                color: var(--earthy-gold);
-                                font-family: 'Avenir', Arial, sans-serif;
-                                font-size: 12px;
-                                font-weight: 500;
-                                text-decoration: none;
-                                line-height: 16px;
-                                display: block;
-                                white-space: nowrap;
-                              "
-                            >
-                              Confirm Patient Details
-                            </a>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                    
+                        <td align="center" valign="middle"
+                            style="background-color:var(--light-buttercream); border-radius:100px; padding:0;">
 
+                            <a href="#"
+                            style="
+                                display:inline-block;
+                                padding:0 14px;            /* horizontal only */
+                                height:32px;               /* for some clients */
+                                line-height:32px;          /* controls vertical height */
+                                color:var(--earthy-gold);
+                                font-family:'Avenir', Arial, sans-serif;
+                                font-size:12px;
+                                font-weight:500;
+                                text-decoration:none;
+                                white-space:nowrap;
+                                mso-line-height-rule:exactly;   /* Outlook */
+                            ">
+                            Confirm Patient Details
+                            </a>
+
+                        </td>
+                        </tr>
+                    </table>
+                    </td>
+
+                    
                 </tr>
             </table>
         </td>
@@ -1334,7 +1357,7 @@
                                             background-color:var(--ash-white);
                                             border:1px solid var(--cloudy-sky);
                                             border-radius: 100px;
-                                            padding: 4px 12px;
+                                            padding: 0px 12px;
                                             white-space: nowrap;
                                             height: 32px;
                                             "
@@ -1347,7 +1370,7 @@
                                                 font-size: 12px;
                                                 font-weight: 500;
                                                 text-decoration: none;
-                                                line-height: 16px;
+                                                line-height: 32px;
                                                 display: block;
                                                 white-space: nowrap;
                                             "
@@ -1820,7 +1843,7 @@
                               background-color:var(--ash-white);
                               border:1px solid var(--cloudy-sky);
                               border-radius: 100px;
-                              padding: 4px 12px;
+                              padding: 0px 12px;
                               white-space: nowrap;
                               height: 32px;
                             "
@@ -1833,7 +1856,7 @@
                                 font-size: 12px;
                                 font-weight: 500;
                                 text-decoration: none;
-                                line-height: 16px;
+                                line-height: 32px;
                                 display: block;
                                 white-space: nowrap;
                               "
