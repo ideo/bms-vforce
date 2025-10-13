@@ -1,0 +1,2362 @@
+<apex:page >
+
+<style type="text/css">
+  body, table, td, div, span, a {
+    font-family: Avenir, Arial, sans-serif !important;
+  }
+
+  :root {
+
+    --coomassie-blue: #144A8E;
+    --cornflower-steel: #5A81AF;
+
+    --scarlet: #DA1E28;
+    --peach-blossom: #F7D2D4;
+    --linen-rose: #FDF4F4;
+
+
+    --cloudy-sky: #D0DBE8;
+    --frost-white: #E7EDF3;
+    --ash-white: #F5F5F5;
+    --midnight-ash: #222222;
+    --stone-gray: #7B7B7B;
+
+
+    --earthy-gold: #916B00;
+    --golden-yellow: #FFC72A;
+    --light-buttercream: #FFE8A9;
+    --porcelain-glow: #FFF9E9;
+
+
+    --leafline: #35521D;
+    --olive-grove: #4D7828;
+    --forest-moss: #609434;
+    --pastel-green: #D2E4C3;
+    --mist-green: #F0F6EB;
+
+    --black: #000000;
+    --white: #FFFFFF;
+  }
+</style>
+
+
+<!-- 8px Spacer -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td height="8" style="height:8px; line-height:8px; font-size:0;">&nbsp;</td>
+  </tr>
+</table>
+
+
+<!-- Email Logo -->
+<table
+    width="682"
+    cellpadding="0"
+    cellspacing="0"
+    border="0"
+    style="
+        margin: 0 auto;
+        background-color: #ffffff;
+    "
+>
+    <tr>
+        <td style="padding: 0 16px">
+            <!-- Logo Container -->
+            <table
+                width="100%"
+                cellpadding="0"
+                cellspacing="0"
+                border="0"
+            >
+                <tr>
+                    <td
+                        align="left"
+                        style="padding: 8px 0"
+                    >
+                        <!-- Logo with Text Layout -->
+                        <table
+                            cellpadding="0"
+                            cellspacing="0"
+                            border="0"
+                            style="
+                                display: inline-table;
+                            "
+                        >
+                            <tr>
+                                <td
+                                    valign="middle"
+                                    style="
+                                        padding-right: 0px;
+                                    "
+                                >
+                                    <!-- BMS Cell Therapy Logo Image -->
+                                    <apex:image value="https://bms-emails.s3.us-east-1.amazonaws.com/image-logo.svg"
+                                        alt="BMS Cell Therapy Logo"
+                                        width="128"
+                                        height="39.4"
+                                        style="
+                                            display: block;
+                                            border: 0;
+                                            outline: none;
+                                            text-decoration: none;
+                                        "
+                                    />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- 8px Spacer -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td height="8" style="height:8px; line-height:8px; font-size:0;">&nbsp;</td>
+  </tr>
+</table>
+
+
+<!-- email-header -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0; padding:0;">
+  <tr>
+    <td align="center" style="padding:0;">
+
+      <!-- Outer wrapper (E2EDF8 bg, rounded, overflow hidden) -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+             style="max-width:682px; margin:0 auto; background-color:#E2EDF8; border-radius:12px; overflow:hidden;">
+        <tr>
+          <td style="padding:0;">
+
+            <!-- ========== HERO CARD (existing component) ========== -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0; padding:0;">
+              <tr>
+                <td align="center" style="padding:0;">
+
+                  <!-- Outer container (max 682, 36px padding) -->
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                         style="max-width:682px; margin:0 auto; border-radius:12px 12px 0 0;">
+                    <tr>
+                      <td style="padding:36px;">
+
+                        <!-- Illustration (140 x 140 circle) -->
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 36px auto;">
+                          <tr>
+                            <td align="center" valign="middle" width="140" height="140"
+                                style="width:140px; height:140px; border-radius:9999px; overflow:hidden;">
+                              <img src="https://bms-emails.s3.us-east-1.amazonaws.com/illustration-example.svg"
+                                   width="147" height="140" alt="Illustration"
+                                   style="display:block; width:147px; height:140px;" />
+                            </td>
+                          </tr>
+                        </table>
+
+                        <!-- Headline + Subcopy -->
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:0 auto 24px auto;">
+                          <tr>
+                            <td align="center" style="padding:0 0 12px 0;">
+                              <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:32px; font-weight:800; line-height:38.4px; display:block;">
+                                Headline
+                              </span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center">
+                              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="max-width:400px; margin:0 auto;">
+                                <tr>
+                                  <td align="center">
+                                    <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:12px; font-weight:400; line-height:16px; display:block;">
+                                      Additional in-market quality release is required for CAR-T products shipped to: Canada, Switzerland, United Kingdom and Israel.
+                                    </span>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+
+                        <!-- Primary Button -->
+                        <table cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 24px auto;">
+                          <tr>
+                            <td align="center" style="padding:0;">
+                              <table cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                                <tr>
+                                  <td align="center" valign="middle"
+                                      style="background-color:var(--coomassie-blue); border-radius:8px; padding:10px 16px;">
+                                    <a href="#"
+                                       style="color:var(--white); font-family:'Avenir', Arial, sans-serif; font-size:14px; font-weight:500; text-decoration:none; display:block; line-height:19px;">
+                                      Schedule Product Delivery
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+
+
+                        <!-- Patient Details: single-row (pill), 100% width -->
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:0; padding:4px 0;">
+                        <tr>
+                            <td align="center" style="padding:0;">
+                            <!-- Outer pill -->
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+                                    style="background-color:var(--white); border-radius:8px;">
+                                <tr>
+                                <td style="padding:0px 0px;">
+                                    <!-- Four columns in one row -->
+                                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <tr>
+                                        <!-- Enrollment ID (25% of total) -->
+                                        <td width="25%" valign="middle" style="padding:2px 6px; white-space:nowrap;">
+                                        <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
+                                            Enrollment ID
+                                        </span>
+                                        &nbsp;&nbsp;
+                                        <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
+                                            ENR-013411
+                                        </span>
+                                        </td>
+
+                                        <!-- JOIN ID (25% of total) -->
+                                        <td width="25%" valign="middle" style="padding:2px 6px; border-left:2px solid #E2EDF8; white-space:nowrap;">
+                                        <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
+                                            JOIN ID
+                                        </span>
+                                        &nbsp;&nbsp;
+                                        <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
+                                            9P95-51M67
+                                        </span>
+                                        </td>
+
+                                        <!-- Patient Initials (hug content / auto) -->
+                                        <td valign="middle" style="padding:2px 6px; border-left:2px solid #E2EDF8; white-space:nowrap;">
+                                        <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
+                                            Patient Initials
+                                        </span>
+                                        &nbsp;&nbsp;
+                                        <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
+                                            BP
+                                        </span>
+                                        </td>
+
+                                        <!-- Treating Physician (fill remaining) -->
+                                        <td valign="middle" style="padding:2px 6px; border-left:2px solid #E2EDF8;">
+                                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                            <tr>
+                                            <td style="white-space:nowrap;">
+                                                <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
+                                                Treating Physician
+                                                </span>
+                                            </td>
+                                            <td align="right" style="white-space:nowrap;">
+                                                <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
+                                                Alex Lane
+                                                </span>
+                                            </td>
+                                            </tr>
+                                        </table>
+                                        </td>
+                                    </tr>
+                                    </table>
+                                    <!-- /Four columns -->
+                                </td>
+                                </tr>
+                            </table>
+                            <!-- /Outer pill -->
+                            </td>
+                        </tr>
+                        </table>
+
+                        <!-- End Patient Details -->
+
+
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+            </table>
+            <!-- ========== /HERO CARD ========== -->
+
+            <!-- Progress Bar band (just the SVG, full width) -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                   style="background-color:#D0DBE8; border-radius:0 0 12px 12px;">
+              <tr>
+                <td align="center" style="padding:0 0;">
+                  <img src="https://bms-emails.s3.us-east-1.amazonaws.com/progress-bar-01.svg"
+                       width="682" alt="Progress bar"
+                       style="display:block; width:682px; height:auto; max-width:100%;" />
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- 8px Spacer -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td height="8" style="height:8px; line-height:8px; font-size:0;">&nbsp;</td>
+  </tr>
+</table>
+
+
+<!-- Email header without action item -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0; padding:0;">
+  <tr>
+    <td align="center" style="padding:0;">
+
+      <!-- Outer wrapper (E2EDF8 bg, rounded, overflow hidden) -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+             style="max-width:682px; margin:0 auto; background-color:#E2EDF8; border-radius:12px; overflow:hidden;">
+        <tr>
+          <td style="padding:0;">
+
+            <!-- ========== HERO CARD (existing component) ========== -->
+                <!-- HERO: Alternative Layout (Left Illustration, Right Text) -->
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0; padding:0;">
+                <tr>
+                    <td align="center" style="padding:0;">
+
+                    <!-- Outer container (max 682, 36px padding, rounded bg) -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                            style="max-width:682px; margin:0 auto; border-radius:12px;">
+                        <tr>
+                        <td style="padding:36px;">
+
+                            <!-- Two-column header row: Illustration | Text -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 36px 0;">
+                            <tr>
+                                <!-- LEFT: Illustration (140 x 140 circle) -->
+                                <td valign="top" width="140" style="padding:0 36px 0 0;"> <!-- 140 + some safety space -->
+                                <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="left">
+                                    <tr>
+                                    <td align="center" valign="middle" width="140" height="140"
+                                        style="width:140px; height:140px; border-radius:9999px; overflow:hidden;">
+                                        <img src="https://bms-emails.s3.us-east-1.amazonaws.com/illustration-example.svg"
+                                            width="147" height="140" alt="Illustration"
+                                            style="display:block; width:147px; height:140px;" />
+                                    </td>
+                                    </tr>
+                                </table>
+                                </td>
+
+                                <!-- RIGHT: Headline + Subcopy -->
+                                <td valign="middle" style="padding:0;">
+                                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                    <td style="padding:0 0 12px 0;">
+                                        <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:32px; font-weight:800; line-height:38.4px; display:block;">
+                                        Your delivery date for Breyanzi has been confirmed.
+                                        </span>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="max-width:400px;">
+                                        <tr>
+                                            <td>
+                                            <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:12px; font-weight:400; line-height:16px; display:block;">
+                                                Additional in-market quality release is required for CAR-T products shipped to: Canada, Switzerland, United Kingdom and Israel.
+                                            </span>
+                                            </td>
+                                        </tr>
+                                        </table>
+                                    </td>
+                                    </tr>
+                                </table>
+                                </td>
+                            </tr>
+                            </table>
+
+
+
+                            <!-- Patient Details: single-row (pill), uniform left-label/right-value columns -->
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:0; padding:4px 0;">
+                            <tr>
+                                <td align="center" style="padding:0;">
+                                <!-- Outer pill -->
+                                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:var(--white); border-radius:8px;">
+                                    <tr>
+                                    <td style="padding:0;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr>
+
+                                            <!-- Enrollment ID (25%) -->
+                                            <td width="25%" valign="middle" style="padding:0 6px; white-space:nowrap;">
+                                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                <tr>
+                                                <td style="padding:4px 0;">
+                                                    <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
+                                                    Enrollment ID
+                                                    </span>
+                                                </td>
+                                                <td align="right" style="padding:4px 0;">
+                                                    <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
+                                                    ENR-013411
+                                                    </span>
+                                                </td>
+                                                </tr>
+                                            </table>
+                                            </td>
+
+                                            <!-- JOIN ID (25%) -->
+                                            <td width="25%" valign="middle" style="padding:0 6px; border-left:2px solid #E2EDF8; white-space:nowrap;">
+                                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                <tr>
+                                                <td style="padding:4px 0;">
+                                                    <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
+                                                    JOIN ID
+                                                    </span>
+                                                </td>
+                                                <td align="right" style="padding:4px 0;">
+                                                    <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
+                                                    9P95-51M67
+                                                    </span>
+                                                </td>
+                                                </tr>
+                                            </table>
+                                            </td>
+
+                                            <!-- Patient Initials (true hug-content + fixed 8px gap) -->
+                                            <td width="1" valign="middle"
+                                                nowrap="nowrap"
+                                                style="width:1px; padding:0 6px; border-left:2px solid #E2EDF8; white-space:nowrap;">
+                                            <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+                                                    style="display:inline-table; width:auto;">
+                                                <tr>
+                                                <td style="padding:4px 0; white-space:nowrap;">
+                                                    <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
+                                                    Patient Initials
+                                                    </span>
+                                                </td>
+
+                                                <!-- Reliable 8px spacer -->
+                                                <td style="width:8px; min-width:8px; max-width:8px; line-height:0; font-size:0;">
+                                                    <img src="https://bms-emails.s3.us-east-1.amazonaws.com/spacer-1x1.png"
+                                                        width="8" height="1" alt="" style="display:block;" />
+                                                </td>
+
+                                                <td style="padding:4px 0; white-space:nowrap;">
+                                                    <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
+                                                    BP
+                                                    </span>
+                                                </td>
+                                                </tr>
+                                            </table>
+                                            </td>
+
+
+                                            <!-- Treating Physician (fills remaining) -->
+                                            <td valign="middle" style="padding:0 6px; border-left:2px solid #E2EDF8;">
+                                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                <tr>
+                                                <td style="padding:4px 0; white-space:nowrap;">
+                                                    <span style="color:var(--cornflower-steel); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:400; line-height:14px;">
+                                                    Treating Physician
+                                                    </span>
+                                                </td>
+                                                <td align="right" style="padding:4px 0; white-space:nowrap;">
+                                                    <span style="color:var(--coomassie-blue); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:800; line-height:14px;">
+                                                    Alex Lane
+                                                    </span>
+                                                </td>
+                                                </tr>
+                                            </table>
+                                            </td>
+
+                                        </tr>
+                                        </table>
+                                    </td>
+                                    </tr>
+                                </table>
+                                <!-- /Outer pill -->
+                                </td>
+                            </tr>
+                            </table>
+                            <!-- End Patient Details -->
+
+
+
+                        </td>
+                        </tr>
+                    </table>
+
+                    </td>
+                </tr>
+                </table>
+
+            <!-- ========== /HERO CARD ========== -->
+
+            <!-- Progress Bar band (just the SVG, full width) -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                   style="background-color:#D0DBE8; border-radius:0 0 12px 12px;">
+              <tr>
+                <td align="center" style="padding:0 0;">
+                  <img src="https://bms-emails.s3.us-east-1.amazonaws.com/progress-bar-01.svg"
+                       width="682" alt="Progress bar"
+                       style="display:block; width:682px; height:auto; max-width:100%;" />
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- 8px Spacer -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td height="8" style="height:8px; line-height:8px; font-size:0;">&nbsp;</td>
+  </tr>
+</table>
+
+        
+<!-- Banner Component -->
+<table
+    width="682"
+    cellpadding="0"
+    cellspacing="0"
+    border="0"
+    style="
+        margin: 0 auto;
+        font-family:
+            &quot;Avenir&quot;, Arial,
+            sans-serif;
+    "
+>
+    <tr>
+        <td
+            style="
+                background-color: var(
+                    --linen-rose
+                );
+                border: 1px solid
+                    var(--peach-blossom);
+                border-radius: 12px;
+                padding: 16px;
+            "
+        >
+            <!-- Banner Content Container -->
+            <table
+                width="100%"
+                cellpadding="0"
+                cellspacing="0"
+                border="0"
+            >
+                <tr>
+                    <!-- Warning Icon -->
+                    <td
+                        width="24"
+                        valign="middle"
+                        style="padding-right: 16px"
+                    >
+                        <img
+                            src="https://bms-emails.s3.us-east-1.amazonaws.com/icon-info-warning.svg"
+                            alt="Warning Icon"
+                            width="24"
+                            height="24"
+                            style="
+                                display: block;
+                                width: 24px;
+                                height: 24px;
+                            "
+                        />
+                    </td>
+
+                    <!-- Banner Message -->
+                    <td valign="middle">
+                        <span
+                            style="
+                                font-size: 12px;
+                                color: var(--scarlet);
+                                font-weight: 400;
+                                line-height: 16px;
+                                margin: 0;
+                                display: block;
+                            "
+                        >
+                            Do not start
+                            lymphodepleting
+                            chemotherapy until you
+                            have received a
+                            notification that quality
+                            release processes are
+                            complete.
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+
+<!-- 8px Spacer -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td height="8" style="height:8px; line-height:8px; font-size:0;">&nbsp;</td>
+  </tr>
+</table>
+
+
+
+<table
+    width="682"
+    cellpadding="0"
+    cellspacing="0"
+    border="0"
+    style="
+        margin: 0 auto;
+        font-family:
+            &quot;Avenir&quot;, Arial,
+            sans-serif;
+    "
+>
+    <tr>
+        <td
+            style="
+                background-color: var(
+                    --frost-white
+                );
+                border: 1px solid
+                    var(--cloudy-sky);
+                border-radius: 12px;
+                padding: 16px;
+            "
+        >
+            <!-- Banner Content Container -->
+            <table
+                width="100%"
+                cellpadding="0"
+                cellspacing="0"
+                border="0"
+            >
+                <tr>
+                    <!-- Regular Icon -->
+                    <td
+                        width="24"
+                        valign="middle"
+                        style="padding-right: 16px"
+                    >
+                        <img
+                            src="https://bms-emails.s3.us-east-1.amazonaws.com/icon-info-regular.svg"
+                            alt="Regular Icon"
+                            width="24"
+                            height="24"
+                            style="
+                                display: block;
+                                width: 24px;
+                                height: 24px;
+                            "
+                        />
+                    </td>
+
+                    <!-- Banner Message -->
+                    <td valign="middle">
+                        <span
+                            style="
+                                font-size: 12px;
+                                color: var(--coomassie-blue);
+                                font-weight: 400;
+                                line-height: 16px;
+                                margin: 0;
+                                display: block;
+                            "
+                        >
+                            To view this patient’s record and see the financial review status, access the Cell Therapy 360 portal here.
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+
+<!-- 8px Spacer -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td height="8" style="height:8px; line-height:8px; font-size:0;">&nbsp;</td>
+  </tr>
+</table>
+
+
+
+<table
+    width="682"
+    cellpadding="0"
+    cellspacing="0"
+    border="0"
+    style="
+        margin: 0 auto;
+        font-family:
+            &quot;Avenir&quot;, Arial,
+            sans-serif;
+    "
+>
+    <tr>
+        <td
+            style="
+                background-color: var(
+                    --porcelain-glow
+                );
+                border: 1px solid
+                    var(--light-buttercream);
+                border-radius: 12px;
+                padding: 16px;
+            "
+        >
+            <!-- Banner Content Container -->
+            <table
+                width="100%"
+                cellpadding="0"
+                cellspacing="0"
+                border="0"
+            >
+                <tr>
+                    <!-- Reminder Icon -->
+                    <td
+                        width="24"
+                        valign="middle"
+                        style="padding-right: 16px"
+                    >
+                        <img
+                            src="https://bms-emails.s3.us-east-1.amazonaws.com/icon-info-reminder.svg"
+                            alt="Reminder Icon"
+                            width="24"
+                            height="24"
+                            style="
+                                display: block;
+                                width: 24px;
+                                height: 24px;
+                            "
+                        />
+                    </td>
+
+                    <!-- Banner Message -->
+                    <td valign="middle">
+                        <span
+                            style="
+                                font-size: 12px;
+                                color: var(--earthy-gold);
+                                font-weight: 400;
+                                line-height: 16px;
+                                margin: 0;
+                                display: block;
+                            "
+                        >
+                            Please confirm the patient’s name and date of birth before the apheresis appointment.
+                        </span>
+                    </td>
+                    
+                    <!-- CTA Button -->
+                    <td valign="middle" align="right" style="padding-left: 16px;">
+                      <table cellpadding="0" cellspacing="0" border="0" style="display: inline-table;">
+                        <tr>
+                          <td
+                            align="center"
+                            valign="middle"
+                            style="
+                              background-color: var(--light-buttercream);
+                              border-radius: 100px;
+                              padding: 4px 14px;
+                              min-width: 120px;
+                              white-space: nowrap;
+                              height: 32px;
+                            "
+                          >
+                            <a
+                              href="#"
+                              style="
+                                color: var(--earthy-gold);
+                                font-family: 'Avenir', Arial, sans-serif;
+                                font-size: 12px;
+                                font-weight: 500;
+                                text-decoration: none;
+                                line-height: 16px;
+                                display: block;
+                                white-space: nowrap;
+                              "
+                            >
+                              Confirm Patient Details
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    
+
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- 
+        Usage in Visualforce Email Templates:
+        
+        Type Variants (modify background-color, border, icon, and text color based on type):
+        
+        Warning Type (Red Theme):
+        - Background: var(--linen-rose) (light pink)
+        - Border: var(--peach-blossom) (pink border)
+        - Icon: Red exclamation mark with var(--scarlet) background
+        - Text Color: var(--scarlet) (red text)
+        - Use for: Critical warnings, errors, important alerts
+        
+        Regular Type (Blue Theme):
+        - Background: var(--frost-white) (light blue)
+        - Border: var(--cloudy-sky) (blue border)
+        - Icon: Blue info icon with var(--coomassie-blue)
+        - Text Color: var(--coomassie-blue) (blue text)
+        - Use for: General information, status updates
+        
+        Reminder Type (Gold Theme):
+        - Background: var(--porcelain-glow) (light cream)
+        - Border: var(--light-buttercream) (yellow border)
+        - Icon: Gold info icon with var(--earthy-gold)
+        - Text Color: var(--earthy-gold) (gold text)
+        - Content: Includes action button with "Confirm Patient Details"
+        - Use for: Action reminders, prompts, interactive notifications
+        
+        Color Style Names from Figma:
+        Warning:
+        - Linen Rose: Background color
+        - Peach Blossom: Border color
+        - Scarlet: Icon and text color
+        
+        Regular:
+        - Frost White: Background color
+        - Cloudy Sky: Border color
+        - Coomassie Blue: Icon and text color
+        
+        Reminder:
+        - Porcelain Glow: Background color
+        - Light Buttercream: Border and button color
+        - Earthy Gold: Icon and text color
+        
+        Example integration with Salesforce:
+        Replace banner text with: {!BannerMessage__c} or {!NotificationText__c}
+        Conditional type selection: {!IF(AlertLevel__c = 'Critical', 'Warning', 
+                                                                         IF(AlertLevel__c = 'Action', 'Reminder', 'Regular'))}
+        
+        For Reminder type, replace button text with: {!ActionButtonText__c}
+        Replace button action with: {!ActionURL} or Salesforce action
+        
+        Typography:
+        - Font: Avenir Medium, 12px
+        - Line height: 16.39px
+        - Font weight: 500
+        - Container: 600px width, 16px padding, 12px border radius
+        -->
+
+
+
+<!-- 8px Spacer -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td height="8" style="height:8px; line-height:8px; font-size:0;">&nbsp;</td>
+  </tr>
+</table>
+
+
+  <!-- section-info (two columns) -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="max-width:682px; margin:0 auto; background-color:var(--ash-white); border-radius:12px; margin-bottom: 0px;">
+  <tr>
+    <td style="padding:20px;">
+      <!-- 2-col grid -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr valign="top">
+          <!-- LEFT column -->
+          <td width="311" style="width:311px;">
+
+
+                <!-- col-info -->
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                        style="max-width:640px; background-color:var(--ash-white); margin:0 auto; padding:0;">
+                    <tr>
+                    <td style="padding:0;">
+
+                        <!-- Section Header -->
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
+                        <tr>
+                            <td>
+                            <span style="color:var(--coomassie-blue); font-size:14px; font-weight:500; display:block;">
+                                Section Header*
+                            </span>
+                            </td>
+                        </tr>
+                        </table>
+
+                        <!-- CARD GROUP -->
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+                        <!-- --- Card 1: Date --- -->
+                        <tr><td style="padding-bottom:16px;">
+                            <!-- Card: Info Date -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <!-- Left Tile -->
+                                <td valign="top" width="80" height="80">
+                                <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                                        style="background-color:var(--white); border-radius:12px; overflow:hidden;">
+                                    <tr><td height="12" style="background-color:var(--frost-white); line-height:12px; font-size:0;">&nbsp;</td></tr>
+                                    <tr><td height="68" style="padding:0;">
+                                    <table role="presentation" width="100%" height="68" cellpadding="0" cellspacing="0" border="0">
+                                        <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                                        <tr><td align="center"><span style="color:var(--coomassie-blue); font-size:28px; line-height:28px; font-weight:800; display:block;">20</span></td></tr>
+                                        <tr><td align="center"><span style="color:var(--coomassie-blue); font-size:14px; line-height:18px; font-weight:400; display:block;">SEPT</span></td></tr>
+                                        <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                                    </table>
+                                    </td></tr>
+                                </table>
+                                </td>
+
+                                <!-- Right Text -->
+                                <td valign="middle" style="padding:8px 24px;">
+                                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                    <td style="padding:0 0 2px 0;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                                        <tr>
+                                            <td valign="middle" style="white-space:nowrap;">
+                                            <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500;">Tue, Sept 20</span>
+                                            </td>
+                                            <td valign="middle" style="padding-left:6px; white-space:nowrap;">
+                                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                                                <tr>
+                                                <td style="background-color:var(--cloudy-sky); border-radius:4px; padding:2px 4px;">
+                                                    <span style="color:var(--coomassie-blue); font-size:10px; line-height:14px; font-weight:500;">Updated</span>
+                                                </td>
+                                                </tr>
+                                            </table>
+                                            </td>
+                                        </tr>
+                                        </table>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td>
+                                        <span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400; display:block;">Estimated Earliest Available</span>
+                                    </td>
+                                    </tr>
+                                </table>
+                                </td>
+                            </tr>
+                            </table>
+                        </td></tr>
+
+                        <!-- --- Card 2: Date --- -->
+                        <tr><td style="padding-bottom:16px;">
+                            <!-- Clone of previous with different content -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td valign="top" width="80" height="80">
+                                <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                                        style="background-color:var(--white); border-radius:12px; overflow:hidden;">
+                                    <tr><td height="12" style="background-color:var(--frost-white); line-height:12px; font-size:0;">&nbsp;</td></tr>
+                                    <tr><td height="68">
+                                    <table role="presentation" width="100%" height="68" cellpadding="0" cellspacing="0" border="0">
+                                        <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                                        <tr><td align="center"><span style="color:var(--coomassie-blue); font-size:28px; line-height:28px; font-weight:800;">22</span></td></tr>
+                                        <tr><td align="center"><span style="color:var(--coomassie-blue); font-size:14px; line-height:18px; font-weight:400;">SEPT</span></td></tr>
+                                        <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                                    </table>
+                                    </td></tr>
+                                </table>
+                                </td>
+                                <td valign="middle" style="padding:8px 24px;">
+                                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                    <td style="padding:0 0 2px 0;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                                        <tr>
+                                            <td valign="middle"><span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500;">Thur, Sept 22</span></td>
+                                            <td valign="middle" style="padding-left:6px;">
+                                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                                                <tr><td style="background-color:var(--cloudy-sky); border-radius:4px; padding:2px 4px;">
+                                                <span style="color:var(--coomassie-blue); font-size:10px; line-height:14px; font-weight:500;">Updated</span>
+                                                </td></tr>
+                                            </table>
+                                            </td>
+                                        </tr>
+                                        </table>
+                                    </td>
+                                    </tr>
+                                    <tr><td><span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400;">Estimated Earliest Available</span></td></tr>
+                                </table>
+                                </td>
+                            </tr>
+                            </table>
+                        </td></tr>
+
+
+                <!-- INSERT: Card 3 (Date) -->
+                <tr><td style="padding-bottom:16px;">
+                <!-- Card: Info Date -->
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                    <!-- Left: Date Tile (80x80) -->
+                    <td valign="top" width="80" height="80">
+                        <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                            style="background-color:var(--white); border-radius:12px; overflow:hidden;">
+                        <tr>
+                            <td height="12" style="background-color:var(--frost-white); line-height:12px; font-size:0;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td height="68" style="height:68px; padding:0;">
+                            <table role="presentation" width="100%" height="68" cellpadding="0" cellspacing="0" border="0">
+                                <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                                <tr>
+                                <td align="center" style="padding:0;">
+                                    <span style="color:var(--coomassie-blue); font-size:28px; line-height:28px; font-weight:800; display:block;">
+                                    20
+                                    <!-- {!DayOfMonth__c} -->
+                                    </span>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td align="center" style="padding:0;">
+                                    <span style="color:var(--coomassie-blue); font-size:14px; line-height:18px; font-weight:400; display:block; letter-spacing:.3px;">
+                                    SEPT
+                                    <!-- {!MonthShort__c} -->
+                                    </span>
+                                </td>
+                                </tr>
+                                <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                            </table>
+                            </td>
+                        </tr>
+                        </table>
+                    </td>
+
+                    <!-- Right: Text Block -->
+                    <td valign="middle" style="padding:8px 24px;">
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td valign="middle" style="padding:0 0 2px 0;">
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                                <tr>
+                                <td valign="middle" style="white-space:nowrap;">
+                                    <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500; display:inline-block;">
+                                    Tue, Sept 20
+                                    <!-- {!DateLong__c} -->
+                                    </span>
+                                </td>
+                                <td valign="middle" align="left" style="padding-left:6px; white-space:nowrap;">
+                                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                                    <tr>
+                                        <td style="background-color:var(--cloudy-sky); border-radius:4px; padding:2px 4px;">
+                                        <span style="color:var(--coomassie-blue); font-size:10px; line-height:14px; font-weight:500; display:block;">
+                                            Updated
+                                            <!-- {!StatusLabel__c} -->
+                                        </span>
+                                        </td>
+                                    </tr>
+                                    </table>
+                                </td>
+                                </tr>
+                            </table>
+                            </td>
+                        </tr>
+
+                        <!-- Line 2: Time -->
+                        <tr>
+                            <td style="padding:0 0 2px 0;">
+                            <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500; display:block;">
+                                9:00 AM
+                                <!-- {!TimeLabel__c} -->
+                            </span>
+                            </td>
+                        </tr>
+
+                        <!-- Line 3: Subtext -->
+                        <tr>
+                            <td>
+                            <span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400; display:block; text-transform:capitalize;">
+                                Estimated earliest available
+                                <!-- {!Subnote__c} -->
+                            </span>
+                            </td>
+                        </tr>
+                        </table>
+                    </td>
+                    </tr>
+                </table>
+                </td></tr>
+
+                <!-- INSERT: Card 4 (Date) -->
+                <tr><td style="padding-bottom:16px;">
+                <!-- Card: Info Date -->
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                    <!-- Left: Date Tile (80x80) -->
+                    <td valign="top" width="80" height="80">
+                        <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                            style="background-color:var(--white); border-radius:12px; overflow:hidden;">
+                        <tr>
+                            <td height="12" style="background-color:var(--frost-white); line-height:12px; font-size:0;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td height="68" style="height:68px; padding:0;">
+                            <table role="presentation" width="100%" height="68" cellpadding="0" cellspacing="0" border="0">
+                                <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                                <tr>
+                                <td align="center" style="padding:0;">
+                                    <span style="color:var(--coomassie-blue); font-size:28px; line-height:28px; font-weight:800; display:block;">
+                                    20
+                                    <!-- {!DayOfMonth__c} -->
+                                    </span>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td align="center" style="padding:0;">
+                                    <span style="color:var(--coomassie-blue); font-size:14px; line-height:18px; font-weight:400; display:block; letter-spacing:.3px;">
+                                    SEPT
+                                    <!-- {!MonthShort__c} -->
+                                    </span>
+                                </td>
+                                </tr>
+                                <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                            </table>
+                            </td>
+                        </tr>
+                        </table>
+                    </td>
+
+                    <!-- Right: Text Block -->
+                    <td valign="middle" style="padding:8px 24px;">
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td valign="middle" style="padding:0 0 2px 0;">
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                                <tr>
+                                <td valign="middle" style="white-space:nowrap;">
+                                    <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500; display:inline-block;">
+                                    Tue, Sept 20
+                                    <!-- {!DateLong__c} -->
+                                    </span>
+                                </td>
+                                <td valign="middle" align="left" style="padding-left:6px; white-space:nowrap;">
+                                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                                    <tr>
+                                        <td style="background-color:var(--cloudy-sky); border-radius:4px; padding:2px 4px;">
+                                        <span style="color:var(--coomassie-blue); font-size:10px; line-height:14px; font-weight:500; display:block;">
+                                            Updated
+                                            <!-- {!StatusLabel__c} -->
+                                        </span>
+                                        </td>
+                                    </tr>
+                                    </table>
+                                </td>
+                                </tr>
+                            </table>
+                            </td>
+                        </tr>
+
+                        <!-- Line 2: Time -->
+                        <tr>
+                            <td style="padding:0 0 2px 0;">
+                            <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500; display:block;">
+                                9:00 AM
+                                <!-- {!TimeLabel__c} -->
+                            </span>
+                            </td>
+                        </tr>
+
+                        <!-- Line 3: Subtext -->
+                        <tr>
+                            <td>
+                            <span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400; display:block; text-transform:capitalize;">
+                                Estimated earliest available
+                                <!-- {!Subnote__c} -->
+                            </span>
+                            </td>
+                        </tr>
+                        </table>
+                    </td>
+                    </tr>
+                </table>
+                </td></tr>
+
+                        
+
+                        <!-- --- Card 3: Icon (Location) --- -->
+                        <tr><td style="padding-bottom:16px;">
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td valign="middle" width="80" height="80" style="padding-right:24px;">
+                                <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                                        style="width:80px;height:80px;background-color:var(--white);border-radius:9999px;">
+                                    <tr><td align="center" valign="middle">
+                                    <img src="https://bms-emails.s3.us-east-1.amazonaws.com/icon-map-pin.svg" alt="Location"
+                                        width="40" height="40" style="display:block;width:40px;height:40px;" />
+                                    </td></tr>
+                                </table>
+                                </td>
+                                <td valign="middle" style="padding:8px 0;">
+                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                    <td style="padding:0 0 2px 0;">
+                                        <span style="color:var(--coomassie-blue); font-size:12px; line-height:16px; font-weight:500; display:block;">
+                                        Duke Univ Medical Ctr APH<br/>2400 Pratt St. Ste 1100<br/>Durham, NC 27705
+                                        </span>
+                                    </td>
+                                    </tr>
+                                    <tr><td><span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400;">Location</span></td></tr>
+                                </table>
+                                </td>
+                            </tr>
+                            </table>
+                        </td></tr>
+
+                        <!-- --- Card 4: Icon (Contact) --- -->
+                        <tr><td style="padding-bottom:16px;">
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td valign="middle" width="80" height="80" style="padding-right:24px;">
+                                <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                                        style="background-color:var(--white);border-radius:9999px;">
+                                    <tr><td align="center" valign="middle">
+                                    <img src="https://bms-emails.s3.us-east-1.amazonaws.com/icon-user-circle.svg" alt="Contact"
+                                        width="40" height="40" style="display:block;width:40px;height:40px;" />
+                                    </td></tr>
+                                </table>
+                                </td>
+                                <td valign="middle" style="padding:8px 0;">
+                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr><td style="padding:0 0 2px 0;">
+                                    <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500;">Michelle Ritchie</span>
+                                    </td></tr>
+                                    <tr><td style="padding:0 0 2px 0;">
+                                    <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500; text-decoration: underline;">+1 617-963-8324</span>
+                                    </td></tr>
+                                    <tr><td><span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400;">Contact</span></td></tr>
+                                </table>
+                                </td>
+                            </tr>
+                            </table>
+                        </td></tr>
+
+                        <!-- --- Card 5: Icon (Container Size) --- -->
+                        <tr><td style="padding-bottom:16px;">
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td valign="middle" width="80" height="80" style="padding-right:24px;">
+                                <table width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                                        style="background-color:var(--white);border-radius:9999px;">
+                                    <tr><td align="center" valign="middle">
+                                    <img src="https://bms-emails.s3.us-east-1.amazonaws.com/icon-ruler.svg" alt="Container Size"
+                                        width="40" height="40" style="display:block;width:40px;height:40px;" />
+                                    </td></tr>
+                                </table>
+                                </td>
+                                <td valign="middle" style="padding:8px 0;">
+                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr><td style="padding:0 0 2px 0;">
+                                    <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500;">8&quot; × 12&quot;</span>
+                                    </td></tr>
+                                    <tr><td><span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400;">Container Size</span></td></tr>
+                                </table>
+                                </td>
+                            </tr>
+                            </table>
+                        </td></tr>
+
+                        <!-- --- Card 6: Icon (Quantity) --- -->
+                        <tr><td style="padding-bottom:16px;">
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td valign="middle" width="80" height="80" style="padding-right:24px;">
+                                <table width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                                        style="background-color:var(--white);border-radius:9999px;">
+                                    <tr><td align="center" valign="middle">
+                                    <img src="https://bms-emails.s3.us-east-1.amazonaws.com/icon-flask.svg" alt="Quantity"
+                                        width="40" height="40" style="display:block;width:40px;height:40px;" />
+                                    </td></tr>
+                                </table>
+                                </td>
+                                <td valign="middle" style="padding:8px 0;">
+                                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr><td style="padding:0 0 2px 0;">
+                                    <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500;">2</span>
+                                    </td></tr>
+                                    <tr><td><span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400;">Quantity</span></td></tr>
+                                </table>
+                                </td>
+                            </tr>
+                            </table>
+                        </td></tr>
+
+                        </table>
+
+                        <!-- Disclaimer -->
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="311" style="margin-bottom:16px;">
+                        <tr>
+                            <td style="background-color:var(--frost-white); border:1px solid var(--cloudy-sky); border-radius:8px; padding:8px 12px;">
+                            <span style="color:var(--coomassie-blue); font-size:12px; line-height:16px; font-weight:400; display:block;">
+                                *Disclaimer or note field: provides contextual details about scheduling or delivery estimates.
+                                Use for legal, informational, or procedural notes.
+                            </span>
+                            </td>
+                        </tr>
+                        </table>
+
+                        <!-- Manage Details Button -->
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td valign="middle" align="right">
+                                    <table cellpadding="0" cellspacing="0" border="0" style="display: inline-table;">
+                                        <tr>
+                                        <td
+                                            align="center"
+                                            valign="middle"
+                                            style="
+                                            background-color:var(--ash-white);
+                                            border:1px solid var(--cloudy-sky);
+                                            border-radius: 100px;
+                                            padding: 4px 12px;
+                                            white-space: nowrap;
+                                            height: 32px;
+                                            "
+                                        >
+                                            <a
+                                            href="#"
+                                            style="
+                                                color:var(--coomassie-blue);
+                                                font-family: 'Avenir', Arial, sans-serif;
+                                                font-size: 12px;
+                                                font-weight: 500;
+                                                text-decoration: none;
+                                                line-height: 16px;
+                                                display: block;
+                                                white-space: nowrap;
+                                            "
+                                            >
+                                            Manage Details
+                                            </a>
+                                        </td>
+                                        </tr>
+                                    </table>
+                            </td>
+                        </tr>
+                        </table>
+
+                    </td>
+                    </tr>
+                </table>
+
+            
+          </td>
+
+          <!-- 20px gutter -->
+          <td width="20" style="width:20px; font-size:0; line-height:0;">&nbsp;</td>
+
+          <!-- RIGHT column -->
+          <td width="311" style="width:311px;">
+            
+
+
+            <!-- col-info -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+         style="max-width:640px; background-color:var(--ash-white); margin:0 auto; padding:0;">
+    <tr>
+      <td style="padding:0;">
+
+        <!-- Section Header -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
+          <tr>
+            <td>
+              <span style="color:var(--coomassie-blue); font-size:14px; font-weight:500; display:block;">
+                Section Header*
+              </span>
+            </td>
+          </tr>
+        </table>
+
+        <!-- CARD GROUP -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+          <!-- --- Card 1: Date --- -->
+          <tr><td style="padding-bottom:16px;">
+            <!-- Card: Info Date -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <!-- Left Tile -->
+                <td valign="top" width="80" height="80">
+                  <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                         style="background-color:var(--white); border-radius:12px; overflow:hidden;">
+                    <tr><td height="12" style="background-color:var(--frost-white); line-height:12px; font-size:0;">&nbsp;</td></tr>
+                    <tr><td height="68" style="padding:0;">
+                      <table role="presentation" width="100%" height="68" cellpadding="0" cellspacing="0" border="0">
+                        <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                        <tr><td align="center"><span style="color:var(--coomassie-blue); font-size:28px; line-height:28px; font-weight:800; display:block;">20</span></td></tr>
+                        <tr><td align="center"><span style="color:var(--coomassie-blue); font-size:14px; line-height:18px; font-weight:400; display:block;">SEPT</span></td></tr>
+                        <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                      </table>
+                    </td></tr>
+                  </table>
+                </td>
+
+                <!-- Right Text -->
+                <td valign="middle" style="padding:8px 24px;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="padding:0 0 2px 0;">
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                          <tr>
+                            <td valign="middle" style="white-space:nowrap;">
+                              <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500;">Tue, Sept 20</span>
+                            </td>
+                            <td valign="middle" style="padding-left:6px; white-space:nowrap;">
+                              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                                <tr>
+                                  <td style="background-color:var(--cloudy-sky); border-radius:4px; padding:2px 4px;">
+                                    <span style="color:var(--coomassie-blue); font-size:10px; line-height:14px; font-weight:500;">Updated</span>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400; display:block;">Estimated Earliest Available</span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td></tr>
+
+          <!-- --- Card 2: Date --- -->
+          <tr><td style="padding-bottom:16px;">
+            <!-- Clone of previous with different content -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td valign="top" width="80" height="80">
+                  <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                         style="background-color:var(--white); border-radius:12px; overflow:hidden;">
+                    <tr><td height="12" style="background-color:var(--frost-white); line-height:12px; font-size:0;">&nbsp;</td></tr>
+                    <tr><td height="68">
+                      <table role="presentation" width="100%" height="68" cellpadding="0" cellspacing="0" border="0">
+                        <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                        <tr><td align="center"><span style="color:var(--coomassie-blue); font-size:28px; line-height:28px; font-weight:800;">22</span></td></tr>
+                        <tr><td align="center"><span style="color:var(--coomassie-blue); font-size:14px; line-height:18px; font-weight:400;">SEPT</span></td></tr>
+                        <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                      </table>
+                    </td></tr>
+                  </table>
+                </td>
+                <td valign="middle" style="padding:8px 24px;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="padding:0 0 2px 0;">
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                          <tr>
+                            <td valign="middle"><span style="color:var(--coomassie-blue); font-size:14px; line-height:18px; font-weight:500;">Thur, Sept 22</span></td>
+                            <td valign="middle" style="padding-left:6px;">
+                              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                                <tr><td style="background-color:var(--cloudy-sky); border-radius:4px; padding:2px 4px;">
+                                  <span style="color:var(--coomassie-blue); font-size:10px; line-height:14px; font-weight:500;">Updated</span>
+                                </td></tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr><td><span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400;">Estimated Earliest Available</span></td></tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td></tr>
+
+
+          <!-- INSERT: Card 3 (Date) -->
+<tr><td style="padding-bottom:16px;">
+  <!-- Card: Info Date -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <!-- Left: Date Tile (80x80) -->
+      <td valign="top" width="80" height="80">
+        <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+               style="background-color:var(--white); border-radius:12px; overflow:hidden;">
+          <tr>
+            <td height="12" style="background-color:var(--frost-white); line-height:12px; font-size:0;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="68" style="height:68px; padding:0;">
+              <table role="presentation" width="100%" height="68" cellpadding="0" cellspacing="0" border="0">
+                <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                <tr>
+                  <td align="center" style="padding:0;">
+                    <span style="color:var(--coomassie-blue); font-size:28px; line-height:28px; font-weight:800; display:block;">
+                      20
+                      <!-- {!DayOfMonth__c} -->
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" style="padding:0;">
+                    <span style="color:var(--coomassie-blue); font-size:14px; line-height:18px; font-weight:400; display:block; letter-spacing:.3px;">
+                      SEPT
+                      <!-- {!MonthShort__c} -->
+                    </span>
+                  </td>
+                </tr>
+                <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+
+      <!-- Right: Text Block -->
+      <td valign="middle" style="padding:8px 24px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td valign="middle" style="padding:0 0 2px 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                <tr>
+                  <td valign="middle" style="white-space:nowrap;">
+                    <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500; display:inline-block;">
+                      Tue, Sept 20
+                      <!-- {!DateLong__c} -->
+                    </span>
+                  </td>
+                  <td valign="middle" align="left" style="padding-left:6px; white-space:nowrap;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                      <tr>
+                        <td style="background-color:var(--cloudy-sky); border-radius:4px; padding:2px 4px;">
+                          <span style="color:var(--coomassie-blue); font-size:10px; line-height:14px; font-weight:500; display:block;">
+                            Updated
+                            <!-- {!StatusLabel__c} -->
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Line 2: Time -->
+          <tr>
+            <td style="padding:0 0 2px 0;">
+              <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500; display:block;">
+                9:00 AM
+                <!-- {!TimeLabel__c} -->
+              </span>
+            </td>
+          </tr>
+
+          <!-- Line 3: Subtext -->
+          <tr>
+            <td>
+              <span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400; display:block; text-transform:capitalize;">
+                Estimated earliest available
+                <!-- {!Subnote__c} -->
+              </span>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</td></tr>
+
+<!-- INSERT: Card 4 (Date) -->
+<tr><td style="padding-bottom:16px;">
+  <!-- Card: Info Date -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <!-- Left: Date Tile (80x80) -->
+      <td valign="top" width="80" height="80">
+        <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+               style="background-color:var(--white); border-radius:12px; overflow:hidden;">
+          <tr>
+            <td height="12" style="background-color:var(--frost-white); line-height:12px; font-size:0;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="68" style="height:68px; padding:0;">
+              <table role="presentation" width="100%" height="68" cellpadding="0" cellspacing="0" border="0">
+                <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                <tr>
+                  <td align="center" style="padding:0;">
+                    <span style="color:var(--coomassie-blue); font-size:28px; line-height:28px; font-weight:800; display:block;">
+                      20
+                      <!-- {!DayOfMonth__c} -->
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" style="padding:0;">
+                    <span style="color:var(--coomassie-blue); font-size:14px; line-height:18px; font-weight:400; display:block; letter-spacing:.3px;">
+                      SEPT
+                      <!-- {!MonthShort__c} -->
+                    </span>
+                  </td>
+                </tr>
+                <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+
+      <!-- Right: Text Block -->
+      <td valign="middle" style="padding:8px 24px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td valign="middle" style="padding:0 0 2px 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                <tr>
+                  <td valign="middle" style="white-space:nowrap;">
+                    <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500; display:inline-block;">
+                      Tue, Sept 20
+                      <!-- {!DateLong__c} -->
+                    </span>
+                  </td>
+                  <td valign="middle" align="left" style="padding-left:6px; white-space:nowrap;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                      <tr>
+                        <td style="background-color:var(--cloudy-sky); border-radius:4px; padding:2px 4px;">
+                          <span style="color:var(--coomassie-blue); font-size:10px; line-height:14px; font-weight:500; display:block;">
+                            Updated
+                            <!-- {!StatusLabel__c} -->
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Line 2: Time -->
+          <tr>
+            <td style="padding:0 0 2px 0;">
+              <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500; display:block;">
+                9:00 AM
+                <!-- {!TimeLabel__c} -->
+              </span>
+            </td>
+          </tr>
+
+          <!-- Line 3: Subtext -->
+          <tr>
+            <td>
+              <span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400; display:block; text-transform:capitalize;">
+                Estimated earliest available
+                <!-- {!Subnote__c} -->
+              </span>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</td></tr>
+
+          
+
+          <!-- --- Card 3: Icon (Location) --- -->
+          <tr><td style="padding-bottom:16px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td valign="middle" width="80" height="80" style="padding-right:24px;">
+                  <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                         style="width:80px;height:80px;background-color:var(--white);border-radius:9999px;">
+                    <tr><td align="center" valign="middle">
+                      <img src="https://bms-emails.s3.us-east-1.amazonaws.com/icon-map-pin.svg" alt="Location"
+                           width="40" height="40" style="display:block;width:40px;height:40px;" />
+                    </td></tr>
+                  </table>
+                </td>
+                <td valign="middle" style="padding:8px 0;">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="padding:0 0 2px 0;">
+                        <span style="color:var(--coomassie-blue); font-size:12px; line-height:16px; font-weight:500; display:block;">
+                          Duke Univ Medical Ctr APH<br/>2400 Pratt St. Ste 1100<br/>Durham, NC 27705
+                        </span>
+                      </td>
+                    </tr>
+                    <tr><td><span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400;">Location</span></td></tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td></tr>
+
+          <!-- --- Card 4: Icon (Contact) --- -->
+          <tr><td style="padding-bottom:16px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td valign="middle" width="80" height="80" style="padding-right:24px;">
+                  <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                         style="background-color:var(--white);border-radius:9999px;">
+                    <tr><td align="center" valign="middle">
+                      <img src="https://bms-emails.s3.us-east-1.amazonaws.com/icon-user-circle.svg" alt="Contact"
+                           width="40" height="40" style="display:block;width:40px;height:40px;" />
+                    </td></tr>
+                  </table>
+                </td>
+                <td valign="middle" style="padding:8px 0;">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr><td style="padding:0 0 2px 0;">
+                      <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500;">Michelle Ritchie</span>
+                    </td></tr>
+                    <tr><td style="padding:0 0 2px 0;">
+                        <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500; text-decoration: underline;">+1 617-963-8324</span>
+                    </td></tr>
+                    <tr><td><span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400;">Contact</span></td></tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td></tr>
+
+          <!-- --- Card 5: Icon (Container Size) --- -->
+          <tr><td style="padding-bottom:16px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td valign="middle" width="80" height="80" style="padding-right:24px;">
+                  <table width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                         style="background-color:var(--white);border-radius:9999px;">
+                    <tr><td align="center" valign="middle">
+                      <img src="https://bms-emails.s3.us-east-1.amazonaws.com/icon-ruler.svg" alt="Container Size"
+                           width="40" height="40" style="display:block;width:40px;height:40px;" />
+                    </td></tr>
+                  </table>
+                </td>
+                <td valign="middle" style="padding:8px 0;">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr><td style="padding:0 0 2px 0;">
+                      <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500;">8&quot; × 12&quot;</span>
+                    </td></tr>
+                    <tr><td><span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400;">Container Size</span></td></tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td></tr>
+
+          <!-- --- Card 6: Icon (Quantity) --- -->
+          <tr><td style="padding-bottom:16px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td valign="middle" width="80" height="80" style="padding-right:24px;">
+                  <table width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                         style="background-color:var(--white);border-radius:9999px;">
+                    <tr><td align="center" valign="middle">
+                      <img src="https://bms-emails.s3.us-east-1.amazonaws.com/icon-flask.svg" alt="Quantity"
+                           width="40" height="40" style="display:block;width:40px;height:40px;" />
+                    </td></tr>
+                  </table>
+                </td>
+                <td valign="middle" style="padding:8px 0;">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr><td style="padding:0 0 2px 0;">
+                      <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500;">2</span>
+                    </td></tr>
+                    <tr><td><span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400;">Quantity</span></td></tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td></tr>
+
+        </table>
+
+        <!-- Disclaimer -->
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="311" style="margin-bottom:16px;">
+          <tr>
+            <td style="background-color:var(--frost-white); border:1px solid var(--cloudy-sky); border-radius:8px; padding:8px 12px;">
+              <span style="color:var(--coomassie-blue); font-size:12px; line-height:16px; font-weight:400; display:block;">
+                *Disclaimer or note field: provides contextual details about scheduling or delivery estimates.
+                Use for legal, informational, or procedural notes.
+              </span>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Manage Details Button -->
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td valign="middle" align="right">
+                      <table cellpadding="0" cellspacing="0" border="0" style="display: inline-table;">
+                        <tr>
+                          <td
+                            align="center"
+                            valign="middle"
+                            style="
+                              background-color:var(--ash-white);
+                              border:1px solid var(--cloudy-sky);
+                              border-radius: 100px;
+                              padding: 4px 12px;
+                              white-space: nowrap;
+                              height: 32px;
+                            "
+                          >
+                            <a
+                              href="#"
+                              style="
+                                color:var(--coomassie-blue);
+                                font-family: 'Avenir', Arial, sans-serif;
+                                font-size: 12px;
+                                font-weight: 500;
+                                text-decoration: none;
+                                line-height: 16px;
+                                display: block;
+                                white-space: nowrap;
+                              "
+                            >
+                              Manage Details
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+             </td>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+  </table>
+
+
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+
+<!-- 8px Spacer -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td height="8" style="height:8px; line-height:8px; font-size:0;">&nbsp;</td>
+  </tr>
+</table>
+
+
+
+
+<!-- section-inquiry -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="max-width:682px; margin:0 auto; background-color:var(--ash-white); border-radius:12px;">
+  <tr>
+    <!-- Section padding = 20px all sides -->
+    <td style="padding:20px;">
+
+      <!-- Inquiry Details -->
+      <!-- Header -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
+        <tr>
+          <td>
+            <span style="color:var(--coomassie-blue); font-size:14px; font-weight:500; display:block;">
+              Inquiry Details
+            </span>
+          </td>
+        </tr>
+      </table>
+
+      <!-- ===== Row 1 (two cards) ===== -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 20px 0;">
+        <tr>
+          <!-- Card A: JOIN -->
+          <td valign="top" width="50%" style="padding-right:8px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <!-- Left icon -->
+                <td valign="middle" width="80" height="80" style="padding-right:24px;">
+                  <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                         style="background-color:var(--white); border-radius:9999px;">
+                    <tr>
+                      <td align="center" valign="middle">
+                        <img src="https://bms-emails.s3.us-east-1.amazonaws.com/icon-hash.svg" alt="JOIN ID"
+                             width="40" height="40" style="display:block;width:40px;height:40px;"/>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <!-- Right text -->
+                <td valign="middle" style="padding:8px 24px 8px 0;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="padding:0 0 2px 0;">
+                        <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500; display:block;">
+                          9P95-51M67
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400; display:block;">
+                          JOIN ID
+                        </span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+
+          <!-- Card B: Product -->
+          <td valign="top" width="50%" style="padding-left:8px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <!-- Left icon -->
+                <td valign="middle" width="80" height="80" style="padding-right:24px;">
+                  <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                         style="background-color:var(--white); border-radius:9999px;">
+                    <tr>
+                      <td align="center" valign="middle">
+                        <img src="https://bms-emails.s3.us-east-1.amazonaws.com/icon-cube.svg" alt="Product"
+                             width="40" height="40" style="display:block;width:40px;height:40px;"/>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <!-- Right text -->
+                <td valign="middle" style="padding:8px 0;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="padding:0 0 2px 0;">
+                        <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500; display:block;">
+                          Breyanzi
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400; display:block;">
+                          Product
+                        </span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <!-- ===== Row 2 (two cards) ===== -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 20px 0;">
+        <tr>
+          <!-- Card C: Topic -->
+          <td valign="top" width="50%" style="padding-right:8px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td valign="middle" width="80" height="80" style="padding-right:24px;">
+                  <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                         style="background-color:var(--white); border-radius:9999px;">
+                    <tr>
+                      <td align="center" valign="middle">
+                        <img src="https://bms-emails.s3.us-east-1.amazonaws.com/icon-chat-centered-text.svg" alt="Topic"
+                             width="40" height="40" style="display:block;width:40px;height:40px;"/>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td valign="middle" style="padding:8px 24px 8px 0;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="padding:0 0 2px 0;">
+                        <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500; display:block;">
+                          Product specifications
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400; display:block;">
+                          Topic
+                        </span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+
+          <!-- Card D: Email -->
+          <td valign="top" width="50%" style="padding-left:8px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td valign="middle" width="80" height="80" style="padding-right:24px;">
+                  <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                         style="background-color:var(--white); border-radius:9999px;">
+                    <tr>
+                      <td align="center" valign="middle">
+                        <img src="https://bms-emails.s3.us-east-1.amazonaws.com/icon-address-book.svg" alt="Email"
+                             width="40" height="40" style="display:block;width:40px;height:40px;"/>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td valign="middle" style="padding:8px 0;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="padding:0 0 2px 0;">
+                        <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500; display:block;">
+                          Email
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:0 0 2px 0;">
+                        <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:500; display:block;">
+                          rsopariwala@ideo.com
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400; display:block;">
+                          Preferred Contact Method
+                        </span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <!-- ===== Question / Issue ===== -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="padding:12px 0 0 0;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="padding:0 0 2px 0;">
+                  <span style="color:var(--stone-gray); font-size:12px; line-height:16px; font-weight:400; display:block;">
+                    Question/Issue
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="color:var(--coomassie-blue); font-size:14px; line-height:19px; font-weight:400; display:block;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+
+<!-- 8px Spacer -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td height="8" style="height:8px; line-height:8px; font-size:0;">&nbsp;</td>
+  </tr>
+</table>
+
+
+
+<!-- Email Footer Section -->
+<table
+    width="682"
+    cellpadding="0"
+    cellspacing="0"
+    border="0"
+    style="
+        margin: 0 auto;
+        font-family:
+            &quot;Avenir&quot;, Arial,
+            sans-serif;
+        background-color: var(--white);
+    "
+>
+    <!-- Main Footer Content Section -->
+    <tr>
+        <td style="padding: 24px">
+            <table
+                width="100%"
+                cellpadding="0"
+                cellspacing="0"
+                border="0"
+            >
+                <tr>
+                    <!-- Left Side - Contact Information -->
+                    <td
+                        align="left"
+                        valign="top"
+                        style="padding-right: 24px"
+                    >
+                        <table
+                            cellpadding="0"
+                            cellspacing="0"
+                            border="0"
+                        >
+                            <tr>
+                                <td
+                                    style="
+                                        padding-bottom: 4px;
+                                    "
+                                >
+                                    <!-- Commercial Type (Default) -->
+                                    <span
+                                        style="
+                                            color: var(
+                                                --stone-gray
+                                            );
+                                            font-size: 12px;
+                                            font-weight: 400;
+                                            line-height: 16px;
+                                            display: block;
+                                        "
+                                    >
+                                        Cell Therapy 360
+                                    </span>
+                                    <!-- Clinical Type Alternative: "On behalf of Celgene, a BMS Company" -->
+                                </td>
+                            </tr>
+                         
+                            <tr>
+                                <td>
+                                    <span
+                                        style="
+                                            color: var(
+                                                --coomassie-blue
+                                            );
+                                            font-size: 12px;
+                                            font-weight: 400;
+                                            line-height: 16px;
+                                            display: block;
+                                        "
+                                    >
+                                        (US) +1
+                                        123-456-7890
+                                    </span>
+                                    <!-- Clinical Type: Use var(--olive-grove) color instead -->
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <!-- Right Side - Portal Links -->
+                    <td
+                        align="right"
+                        valign="top"
+                    >
+                        <table
+                            cellpadding="0"
+                            cellspacing="0"
+                            border="0"
+                        >
+                            <tr>
+                                <td
+                                    align="right"
+                                    style="
+                                        padding-bottom: 4px;
+                                    "
+                                >
+                                    <!-- Commercial Type: Log In Link -->
+                                    <a
+                                        href="#"
+                                        style="
+                                            color: var(
+                                                --coomassie-blue
+                                            );
+                                            font-size: 12px;
+                                            font-weight: 400;
+                                            text-decoration: underline;
+                                            line-height: 16px;
+                                            display: block;
+                                        "
+                                    >
+                                        Log In to Cell Therapy 360 Portal
+                                    </a>
+                                    <!-- Clinical Type Alternative: "Log In to Cell Therapy 360 Portal" with var(--olive-grove) color -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <a
+                                        href="#"
+                                        style="
+                                            color: var(
+                                                --stone-gray
+                                            );
+                                            font-size: 12px;
+                                            font-weight: 400;
+                                            text-decoration: underline;
+                                            line-height: 16px;
+                                            display: block;
+                                        "
+                                    >
+                                        Manage Preferences
+                                    </a>
+                                    <!-- Clinical Type Alternative: "Manage Preferences" -->
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <!-- Legal/Disclaimer Section -->
+    <tr>
+        <td
+            style="padding: 0 24px 24px 24px"
+        >
+            <table
+                width="100%"
+                cellpadding="0"
+                cellspacing="0"
+                border="0"
+            >
+                <tr>
+                    <td>
+                        <table
+                            cellpadding="0"
+                            cellspacing="0"
+                            border="0"
+                        >
+                            <tr>
+                                <td
+                                    style="
+                                        padding-bottom: 1px;
+                                    "
+                                >
+                                    <span
+                                        style="
+                                            color: var(
+                                                --stone-gray
+                                            );
+                                            font-size: 10px;
+                                            font-weight: 400;
+                                            line-height: 14px;
+                                            display: block;
+                                        "
+                                    >
+                                        © 2025 Bristol
+                                        Myers Squibb
+                                        Company.
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span
+                                        style="
+                                            color: var(
+                                                --stone-gray
+                                            );
+                                            font-size: 10px;
+                                            font-weight: 400;
+                                            line-height: 14px;
+                                            display: block;
+                                        "
+                                    >
+                                        CELL THERAPY 360
+                                        and the related
+                                        logo are trademarks
+                                        of Celgene
+                                        Corporation, a
+                                        Bristol Myers
+                                        Squibb Company
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- 
+        Usage in Visualforce Email Templates:
+        
+        Type Variants (modify content and colors based on type):
+        
+        Commercial Type (Regular) - Default:
+        - Greeting: "Best regards," + "Cell Therapy 360"
+        - Contact: Phone number in Coomassie Blue
+        - Links: "Unsubscribe" and "Change Preferences" in Stone Gray
+        - Use for: Commercial communications, business processes
+        
+        Clinical Type:
+        - Greeting: "On behalf of Celgene, a BMS Company"
+        - Contact: Phone number in Olive Grove color
+        - Links: "Log In to Cell Therapy 360 Portal" (Olive Grove) and "Manage Preferences" (Stone Gray)
+        - Use for: Clinical trial communications, medical procedures
+        
+        Color Style Names from Figma:
+        Commercial:
+        - Coomassie Blue: Contact information color
+        - Stone Gray: Secondary text and links
+        
+        Clinical:
+        - Olive Grove: Primary contact and portal link color
+        - Stone Gray: Secondary text and links
+        
+        Example Salesforce merge fields:
+        - Replace contact info with: {!Organization.Name}, {!Support_Phone__c}
+        - Replace links with: {!Unsubscribe_URL}, {!Preferences_URL}, {!Portal_URL}
+        - Dynamic type selection: {!IF(ProcessType__c = 'Clinical', 'clinical', 'regular')}
+        - Year update: {!YEAR(TODAY())}
+        
+        Typography:
+        - Contact info: Avenir Medium, 12px, 16.39px line height
+        - Links: Avenir Regular, 12px, 16.39px line height
+        - Legal text: Avenir Regular, 10px, 13.66px line height
+        - Layout: 600px width, 24px padding, white background with top border
+        -->
+
+
+
+
+</apex:page>
