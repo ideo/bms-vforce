@@ -37,8 +37,24 @@
     --black: #000000;
     --white: #FFFFFF;
   }
+
+  @media only screen and (max-width:600px) {
+  .hide-mobile { display:none !important; width:0 !important; height:0 !important; overflow:hidden !important; }
+  .show-mobile { display:block !important; max-height:none !important; }
+  }
+  @media only screen and (min-width:601px) {
+    .show-mobile { display:none !important; width:0 !important; height:0 !important; overflow:hidden !important; }
+  }
 </style>
 
+
+<!-- GLOBAL WRAPPER (adds 8px padding on both sides) -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="width:100%; background-color:#ffffff; margin:0; padding:0;">
+  <tr>
+    <td align="center" style="padding:0 8px;">
+
+<!-- ======== START ACTUAL EMAIL CONTENT ======== -->
 
 <!-- 8px Spacer -->
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -48,68 +64,35 @@
 </table>
 
 
-<!-- Email Logo -->
-<table
-    width="682"
-    cellpadding="0"
-    cellspacing="0"
-    border="0"
-    style="
-        margin: 0 auto;
-        background-color: #ffffff;
-    "
->
-    <tr>
-        <td style="padding: 0 16px">
-            <!-- Logo Container -->
-            <table
-                width="100%"
-                cellpadding="0"
-                cellspacing="0"
-                border="0"
-            >
-                <tr>
-                    <td
-                        align="left"
-                        style="padding: 8px 0"
-                    >
-                        <!-- Logo with Text Layout -->
-                        <table
-                            cellpadding="0"
-                            cellspacing="0"
-                            border="0"
-                            style="
-                                display: inline-table;
-                            "
-                        >
-                            <tr>
-                                <td
-                                    valign="middle"
-                                    style="
-                                        padding-right: 0px;
-                                    "
-                                >
-                                    <!-- BMS Cell Therapy Logo Image -->
-                                    <apex:image value="https://bms-emails.s3.us-east-1.amazonaws.com/image-logo.svg"
-                                        alt="BMS Cell Therapy Logo"
-                                        width="128"
-                                        height="39.4"
-                                        style="
-                                            display: block;
-                                            border: 0;
-                                            outline: none;
-                                            text-decoration: none;
-                                        "
-                                    />
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
+<!-- Email Logo (fluid container, fixed inner content) -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+  style="max-width:682px; margin:0 auto; background-color:#ffffff;">
+  <tr>
+    <td style="padding: 0 16px">
+      <!-- (everything inside stays the same; image keeps width/height) -->
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td align="left" style="padding: 8px 0">
+            <table cellpadding="0" cellspacing="0" border="0" style="display: inline-table;">
+              <tr>
+                <td valign="middle" style="padding-right: 0px;">
+                  <apex:image
+                    value="https://bms-emails.s3.us-east-1.amazonaws.com/image-logo.svg"
+                    alt="BMS Cell Therapy Logo"
+                    width="128"
+                    height="39.4"
+                    style="display:block; border:0; outline:none; text-decoration:none;" />
+                </td>
+              </tr>
             </table>
-        </td>
-    </tr>
+          </td>
+        </tr>
+      </table>
+      <!-- /inside -->
+    </td>
+  </tr>
 </table>
+
 
 <!-- 8px Spacer -->
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -124,9 +107,9 @@
   <tr>
     <td align="center" style="padding:0;">
 
-      <!-- Outer wrapper (E2EDF8 bg, rounded, overflow hidden) -->
+      <!-- Outer wrapper (fluid + cap, centered) -->
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
-             style="max-width:682px; margin:0 auto; background-color:#E2EDF8; border-radius:12px; overflow:hidden;">
+            style="width:100%; max-width:682px; margin:0 auto; background-color:#E2EDF8; border-radius:12px; overflow:hidden;">
         <tr>
           <td style="padding:0;">
 
@@ -135,9 +118,9 @@
               <tr>
                 <td align="center" style="padding:0;">
 
-                  <!-- Outer container (max 682, 36px padding) -->
+                  <!-- Hero outer container (fluid + cap, centered) -->
                   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
-                         style="max-width:682px; margin:0 auto; border-radius:12px 12px 0 0;">
+                        style="width:100%; max-width:682px; margin:0 auto; border-radius:12px 12px 0 0;">
                     <tr>
                       <td style="padding:36px;">
 
@@ -316,13 +299,25 @@
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
                    style="background-color:#D0DBE8; border-radius:0 0 12px 12px;">
               <tr>
-                <td align="center" style="padding:0 0;">
-                  <img src="https://bms-emails.s3.us-east-1.amazonaws.com/progress-bar-01.svg"
-                       width="682" alt="Progress bar"
-                       style="display:block; width:682px; height:auto; max-width:100%;" />
+                <td align="center" style="padding:0;">
+                  <!-- Desktop version (fixed 682) -->
+                  <img
+                    src="https://bms-emails.s3.us-east-1.amazonaws.com/progress-bar-01.svg"
+                    width="682" alt="Progress bar"
+                    class="hide-mobile"
+                    style="display:block; width:682px; height:auto;" />
+
+                  <!-- Mobile version (fixed 344 or 360) -->
+                  <img
+                    src="https://bms-emails.s3.us-east-1.amazonaws.com/progress-bar-mobile-04.svg"
+                    width="344" alt="Progress bar"
+                    class="show-mobile"
+                    style="display:block; width:344px; height:auto;" />
                 </td>
               </tr>
             </table>
+
+            
 
           </td>
         </tr>
@@ -532,10 +527,20 @@
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
                    style="background-color:#D0DBE8; border-radius:0 0 12px 12px;">
               <tr>
-                <td align="center" style="padding:0 0;">
-                  <img src="https://bms-emails.s3.us-east-1.amazonaws.com/progress-bar-01.svg"
-                       width="682" alt="Progress bar"
-                       style="display:block; width:682px; height:auto; max-width:100%;" />
+                <td align="center" style="padding:0;">
+                  <!-- Desktop version (fixed 682) -->
+                  <img
+                    src="https://bms-emails.s3.us-east-1.amazonaws.com/progress-bar-01.svg"
+                    width="682" alt="Progress bar"
+                    class="hide-mobile"
+                    style="display:block; width:682px; height:auto;" />
+
+                  <!-- Mobile version (fixed 344 or 360) -->
+                  <img
+                    src="https://bms-emails.s3.us-east-1.amazonaws.com/progress-bar-mobile-04.svg"
+                    width="344" alt="Progress bar"
+                    class="show-mobile"
+                    style="display:block; width:344px; height:auto;" />
                 </td>
               </tr>
             </table>
@@ -2379,6 +2384,10 @@
         - Layout: 600px width, 24px padding, white background with top border
         -->
 
+<!-- ======== END ACTUAL EMAIL CONTENT ======== -->
+    </td>
+  </tr>
+</table>
 
 
 
