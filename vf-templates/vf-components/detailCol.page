@@ -1,0 +1,80 @@
+<apex:component >
+
+  <!-- ===== Attributes ===== -->
+  <apex:attribute name="productType" type="String" required="true"
+                  description="Theme: 'commercial', 'clinical', or 'security'"/>
+  <apex:attribute name="sectionHeader" type="String" required="true"
+                  description="Section header text"/>
+  <apex:attribute name="showDisclaimer" type="Boolean" default="false"
+                  description="If true, shows the disclaimer box"/>
+  <apex:attribute name="disclaimerText" type="String"
+                  description="Text for the disclaimer (used when showDisclaimer=true)"/>
+  <apex:attribute name="showSecondaryButton" type="Boolean" default="false"
+                  description="If true, shows the secondary action button"/>
+  <apex:attribute name="secondaryButtonText" type="String" default="Manage Details"
+                  description="Secondary button label"/>
+  <apex:attribute name="secondaryButtonLink" type="String" default="#"
+                  description="Secondary button URL"/>
+  <apex:attribute name="maxWidth" type="Integer" default="640"
+                  description="Max width in px"/>
+
+  <!-- Theme: header color -->
+  <apex:variable var="headerColor" value="var(--coomassie-blue, #144A8E)"/>
+  <apex:outputPanel rendered="{!productType = 'clinical'}">
+    <apex:variable var="headerColor" value="var(--leafline, #35521D)"/>
+  </apex:outputPanel>
+
+  <!-- ===== Markup ===== -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+         style="max-width:{!maxWidth}px; background-color:var(--ash-white, #F5F5F5); margin:0 auto; padding:0;">
+    <tr>
+      <td style="padding:0;">
+
+        <!-- Section Header -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
+          <tr>
+            <td>
+              <span style="color:{!headerColor}; font-size:14px; font-weight:500; display:block; line-height: 32px;">
+                {!sectionHeader}
+              </span>
+            </td>
+          </tr>
+        </table>
+
+        <!-- CARD GROUP -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:4px;">
+          <!-- Named facet (optional) -->
+          <apex:insert name="cards"/>
+          <!-- Default body slot (so you can place child tags directly) -->
+          <apex:componentBody />
+        </table>
+
+        <!-- Disclaimer (optional) -->
+        <apex:outputPanel rendered="{!showDisclaimer}" layout="none">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:4px;">
+            <tr>
+              <td>
+                <c:disclaimerBox productType="{!productType}" text="{!disclaimerText}" width="311"/>
+              </td>
+            </tr>
+          </table>
+        </apex:outputPanel>
+
+        <!-- Secondary Button (optional, right-aligned) -->
+        <apex:outputPanel rendered="{!showSecondaryButton}" layout="none">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+              <td align="left" valign="middle">
+                <c:buttonSecondary productType="{!productType}"
+                  buttonText="{!secondaryButtonText}"
+                  buttonLink="{!secondaryButtonLink}"/>
+              </td>
+            </tr>
+          </table>
+        </apex:outputPanel>
+
+      </td>
+    </tr>
+  </table>
+
+</apex:component>

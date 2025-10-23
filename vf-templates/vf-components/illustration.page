@@ -1,0 +1,77 @@
+<apex:component >
+  <!-- ===== Attributes ===== -->
+  <apex:attribute name="src" 
+    type="String" 
+    description="Illustration image source"
+    default="https://bms-emails.s3.us-east-1.amazonaws.com/illustration-example.svg"
+  />
+  
+  <apex:attribute name="hasAction" 
+    type="Boolean" 
+    description="Whether the corresponding email has an action or not"
+    default="true"
+  />
+
+  <!-- ===== Illustration (conditional margin) ===== -->
+
+  <!-- Case 1: With Action (36px bottom margin) -->
+  <apex:outputPanel rendered="{!hasAction}" layout="none">
+    <table 
+      role="presentation" 
+      cellpadding="0" 
+      cellspacing="0" 
+      border="0"
+      align="center" 
+      style="margin:0 auto 36px auto;"
+    >
+      <tr>
+        <td 
+          align="center" 
+          valign="middle" 
+          width="140" 
+          height="140"
+          style="width:140px; height:140px; border-radius:9999px; overflow:hidden;"
+        >
+          <img 
+            src="{!src}"
+            width="140" 
+            height="140" 
+            alt="Illustration"
+            style="display:block; width:140px; height:140px;" 
+          />
+        </td>
+      </tr>
+    </table>
+  </apex:outputPanel>
+
+  <!-- Case 2: No Action (0px bottom margin) -->
+  <apex:outputPanel rendered="{!!hasAction}" layout="none">
+    <table 
+      role="presentation" 
+      cellpadding="0" 
+      cellspacing="0" 
+      border="0"
+      align="center" 
+      style="margin:0 auto 0 auto;"
+    >
+      <tr>
+        <td 
+          align="center" 
+          valign="middle" 
+          width="140" 
+          height="140"
+          style="width:140px; height:140px; border-radius:9999px; overflow:hidden;"
+        >
+          <img 
+            src="{!src}"
+            width="140" 
+            height="140" 
+            alt="Illustration"
+            style="display:block; width:140px; height:140px;" 
+          />
+        </td>
+      </tr>
+    </table>
+  </apex:outputPanel>
+
+</apex:component>

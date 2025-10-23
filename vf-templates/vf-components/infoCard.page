@@ -1,0 +1,86 @@
+<apex:component >
+
+  <!-- ===== Attributes ===== -->
+  <apex:attribute name="productType" type="String" required="true"
+                  description="Theme: 'commercial', 'clinical', or 'security'"/>
+
+  <!-- Left tile icon -->
+  <apex:attribute name="iconSrc" type="String" required="true"
+                  description="URL for the left tile icon (e.g., https://.../icon-ruler.svg)"/>
+  <apex:attribute name="iconAlt" type="String" required="false" default="Icon"
+                  description="Alt text for the left tile icon"/>
+
+  <!-- Right-side texts -->
+  <apex:attribute name="dataText" type="String" required="true"
+                  description="Main data text (e.g., 8&quot; × 12&quot;)"/>
+  <apex:attribute name="labelText" type="String" required="true"
+                  description="Label text (e.g., Container Size)"/>
+
+  <!-- Optional layout knobs -->
+  <apex:attribute name="circleSize" type="Integer" required="false" default="80"
+                  description="Diameter of the left circular tile in pixels"/>
+  <apex:attribute name="iconSize" type="Integer" required="false" default="40"
+                  description="Width/height of the icon in pixels"/>
+  <apex:attribute name="circleBg" type="String" required="false" default="var(--white, #FFFFFF)"
+                  description="Background color of the circular icon tile"/>
+
+  <!-- ===== Theme colors ===== -->
+  <!-- Defaults: commercial / security / anything else -> coomassie blue for data; stone-gray for label -->
+  <apex:variable var="dataColor"  value="var(--coomassie-blue, #144A8E)"/>
+  <apex:variable var="labelColor" value="var(--stone-gray, #7B7B7B)"/>
+
+  <!-- Clinical override -->
+  <apex:outputPanel rendered="{!productType = 'clinical'}">
+    <apex:variable var="dataColor" value="var(--leafline, #35521D)"/>
+  </apex:outputPanel>
+
+  <!-- ===== Markup ===== -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+         style="max-width:640px; margin:0 auto;">
+    <tr>
+      <td style="padding-bottom:0px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+
+            <!-- Left circular icon tile -->
+            <td valign="middle" width="{!circleSize}" height="{!circleSize}" style="padding-right:24px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+                     width="{!circleSize}" height="{!circleSize}"
+                     style="background-color:{!circleBg}; border-radius:9999px;">
+                <tr>
+                  <td align="center" valign="middle">
+                    <img src="{!iconSrc}" alt="{!iconAlt}"
+                         width="{!iconSize}" height="{!iconSize}"
+                         style="display:block; width:{!iconSize}px; height:{!iconSize}px;" />
+                  </td>
+                </tr>
+              </table>
+            </td>
+
+            <!-- Right texts -->
+            <td valign="middle" style="padding:8px 0;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="padding:0 0 2px 0;">
+                    <span style="color:{!dataColor}; font-size:14px; line-height:19px; font-weight:500; display:block;">
+                        <apex:outputText value="{!dataText}" escape="false"/>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span style="color:{!labelColor}; font-size:12px; line-height:16px; font-weight:400; display:block;">
+                      {!labelText}
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</apex:component>

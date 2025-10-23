@@ -1,0 +1,138 @@
+<apex:component >
+
+  <!-- ===== Attributes ===== -->
+  <apex:attribute name="productType" type="String" required="true"
+                  description="Theme: 'commercial', 'clinical', or 'security'"/>
+
+  <apex:attribute name="brandLabel" type="String" required="false" default="Cell Therapy 360"
+                  description="Left-side brand label text"/>
+  <apex:attribute name="phoneLinkHref" type="String" required="true"
+                  description="URL for the global phone numbers link (e.g., https://www.celltherapy360.com/phones)"/>
+  <apex:attribute name="phoneLinkText" type="String" required="false" default="Global Phone Numbers"
+                  description="Text label for the global phone numbers link"/>
+  <apex:attribute name="loginHref" type="String" required="true"
+                  description="URL for the Log In link"/>
+  <apex:attribute name="loginText" type="String" required="false"
+                  default="Log In to Cell Therapy 360 Portal"
+                  description="Text for the Log In link"/>
+  <apex:attribute name="manageHref" type="String" required="false" default="#"
+                  description="URL for Manage Preferences link"/>
+  <apex:attribute name="manageText" type="String" required="false" default="Manage Preferences"
+                  description="Text for Manage Preferences link"/>
+
+  <!-- ===== Theme logic for accent color (phones & login link) ===== -->
+  <!-- Default/commercial/security = coomassie-blue -->
+  <apex:variable var="accentColor" value="var(--coomassie-blue, #144A8E)"/>
+  <apex:outputPanel rendered="{!productType = 'clinical'}">
+    <apex:variable var="accentColor" value="var(--olive-grove, #4D7828)"/>
+  </apex:outputPanel>
+
+  <!-- ===== Footer (responsive width + stacking columns) ===== -->
+  <table
+      role="presentation"
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      border="0"
+      class="container cap-682 web"
+      style="margin:0 auto; font-family:'Avenir', Arial, sans-serif; background-color:var(--white, #FFFFFF);"
+  >
+    <!-- Main Footer Content -->
+    <tr>
+      <td style="padding:24px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;">
+          <tr valign="top" style="vertical-align:top;">
+
+            <!-- Left: Contact (stacks on mobile) -->
+            <td class="col-50" align="left" style="vertical-align:top; padding-right:24px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="padding-bottom:4px;">
+                    <span style="color:var(--stone-gray, #7B7B7B); font-size:12px; font-weight:400; line-height:16px; display:block;">
+                      {!brandLabel}
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="{!phoneLinkHref}" target="_blank" rel="noopener noreferrer"
+                       style="color:{!accentColor}; font-size:12px; font-weight:400; line-height:16px; text-decoration:underline; display:block;">
+                      {!phoneLinkText}
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+
+            <!-- Gap (hidden on mobile by .gap-20 rule) -->
+            <td class="gap-20">&nbsp;</td>
+
+            <!-- Right: Links (stacks under contact on mobile) -->
+            <td class="col-50 footer-col-right" align="right" style="vertical-align:top;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="right" style="padding-bottom:4px;">
+                    <a
+                      href="{!loginHref}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style="color:{!accentColor}; font-size:12px; font-weight:400; text-decoration:underline; line-height:16px; display:block;"
+                    >
+                      {!loginText}
+                    </a>
+                  </td>
+                </tr>
+
+                <!-- Manage Preferences (hidden for security emails) -->
+                <apex:outputPanel rendered="{!productType != 'security'}" layout="none">
+                  <tr>
+                    <td align="right">
+                      <a
+                        href="{!manageHref}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="color:var(--stone-gray, #7B7B7B); font-size:12px; font-weight:400; text-decoration:underline; line-height:16px; display:block;"
+                      >
+                        {!manageText}
+                      </a>
+                    </td>
+                  </tr>
+                </apex:outputPanel>
+              </table>
+            </td>
+
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- Legal -->
+    <tr>
+      <td style="padding:0 24px 24px 24px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td>
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="padding-bottom:1px;">
+                    <span style="color:var(--stone-gray, #7B7B7B); font-size:10px; font-weight:400; line-height:14px; display:block;">
+                      © 2025 Bristol Myers Squibb Company.
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span style="color:var(--stone-gray, #7B7B7B); font-size:10px; font-weight:400; line-height:14px; display:block;">
+                      CELL THERAPY 360 and the related logo are trademarks of Celgene Corporation, a Bristol Myers Squibb Company
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</apex:component>

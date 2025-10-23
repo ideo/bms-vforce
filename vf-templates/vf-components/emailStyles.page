@@ -1,0 +1,115 @@
+<apex:component >
+
+  <style type="text/css">
+    body, table, td, div, span, a {
+      font-family: Avenir, Arial, sans-serif !important;
+    }
+
+    :root {
+      --coomassie-blue: #144A8E;
+      --cornflower-steel: #5A81AF;
+      --scarlet: #DA1E28;
+      --peach-blossom: #F7D2D4;
+      --linen-rose: #FDF4F4;
+      --cloudy-sky: #D0DBE8;
+      --frost-white: #E7EDF3;
+      --ice-blue: #E2EDF8;
+      --ash-white: #F5F5F5;
+      --midnight-ash: #222222;
+      --stone-gray: #7B7B7B;
+      --earthy-gold: #916B00;
+      --golden-yellow: #FFC72A;
+      --light-buttercream: #FFE8A9;
+      --porcelain-glow: #FFF9E9;
+      --leafline: #35521D;
+      --olive-grove: #4D7828;
+      --forest-moss: #609434;
+      --pastel-green: #D2E4C3;
+      --mist-green: #F0F6EB;
+      --black: #000000;
+      --white: #FFFFFF;
+    }
+
+    /* ====== RESPONSIVE RULES (714px breakpoint) ====== */
+    /* Helpers */
+    .container { width: 100% !important; margin: 0 auto !important; }
+    .cap-682 { max-width: 682px !important; }
+    .pad-x-16 { padding-left: 16px !important; padding-right: 16px !important; }
+    .pad-0 { padding: 0 !important; }
+    .round-0 { border-radius: 0px !important; overflow: hidden !important; }
+    .round-12 { border-radius: 12px !important; overflow: hidden !important; }
+    .img-fluid { width: 100% !important; height: auto !important; display: block !important; }
+    .show-desktop { display: none !important; }
+    .show-mobile { display: block !important; }
+    .hide-mobile { display: none !important; }
+    .col-50 { width: calc(50% - 10px) !important; vertical-align: top !important; }
+    .gap-20 { width: 20px !important; line-height: 0 !important; font-size: 0 !important; }
+    
+    /* Desktop / Web layout: lock width at and above 714px */
+    @media only screen and (min-width: 714px) {
+      .web { width: 682px !important; max-width: 682px !important; }
+      .cap-682 { max-width: 682px !important; }
+      .show-desktop { display: block !important; }
+      .show-mobile { display: none !important; }
+    }
+
+    /* Mobile layout: fluid below 714px */
+    @media only screen and (max-width: 713.98px) {
+      .web { width: 100% !important; max-width: 100% !important; }
+      .cap-682 { max-width: 100% !important; }
+      .pad-x-16 { padding-left: 12px !important; padding-right: 12px !important; }
+      .round-12 { border-radius: 12px !important; }
+      .img-fluid { width: 100% !important; height: auto !important; }
+      .hide-mobile { display: none !important; }
+      .show-mobile { display: block !important; }
+    }
+
+    /* Fixed-size progress bar on mobile (centered) */
+    @media only screen and (max-width: 713.98px) {
+      .progress-bar-mobile {
+        width: 100% !important;
+        max-width: 359px !important;
+        height: auto !important;
+        display: block !important;
+        margin: 0 auto !important;
+      }
+      .pill-col { display: block !important; width: 100% !important; padding: 6px 8px !important; }
+      .pill-border { border-left: 0 !important; }
+      .no-wrap { white-space: normal !important; }
+    }
+
+    /* Slightly reduce hero padding / headline size on very small screens */
+    @media only screen and (max-width: 375px) {
+      .hero-pad { padding: 20px !important; }
+      .headline { font-size: 24px !important; line-height: 30px !important; }
+    }
+    
+    /* Mobile: stack columns; hide gap; add top space to right column */
+    @media only screen and (max-width: 713.98px) {
+      .col-50 { display: block !important; width: 100% !important; }
+      .col-50[align="right"] { text-align: left !important; }
+      .gap-20 { display: none !important; width: 0 !important; }
+      .col-right { padding-top: 36px !important; } /* vertical gap when stacked */
+    }
+    
+    /* ===== Footer Mobile Adjustments ===== */
+    @media only screen and (max-width: 713.98px) {
+      /* Stack the two columns and left-align right column content */
+      td.footer-col-right,
+      .footer-col-right {
+        text-align: left !important;
+        padding-top: 24px !important; /* spacing between contact and links */
+      }
+    
+      /* Ensure links stack cleanly */
+      .footer-col-right a {
+        display: block !important;
+        margin-top: 0px !important; /* small spacing between login &amp; manage links */
+        text-align: left !important; /* enforce left alignment */
+      }
+    }  
+    
+  </style>
+
+  
+</apex:component>

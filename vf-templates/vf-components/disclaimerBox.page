@@ -1,0 +1,49 @@
+<apex:component >
+
+  <!-- ===== Attributes ===== -->
+  <apex:attribute name="productType" type="String" required="true"
+                  description="Theme: 'commercial', 'clinical', or 'security'"/>
+  <apex:attribute name="text" type="String" required="true"
+                  description="Disclaimer or note text content"/>
+  <apex:attribute name="width" type="String" required="false" default="311"
+                  description="Width of the disclaimer box in pixels"/>
+  <apex:attribute name="marginBottom" type="String" required="false" default="16px"
+                  description="Bottom margin of the disclaimer box"/>
+
+  <!-- ===== Theme colors ===== -->
+  <!-- Default / Commercial / Security -->
+  <apex:variable var="textColor"   value="var(--coomassie-blue, #144A8E)"/>
+  <apex:variable var="bgColor"     value="var(--frost-white, #E7EDF3)"/>
+  <apex:variable var="borderColor" value="var(--cloudy-sky, #D0DBE8)"/>
+
+  <!-- Clinical override -->
+  <apex:outputPanel rendered="{!productType = 'clinical'}">
+    <apex:variable var="textColor"   value="var(--leafline, #35521D)"/>
+    <apex:variable var="bgColor"     value="var(--mist-green, #F0F6EB)"/>
+    <apex:variable var="borderColor" value="var(--pastel-green, #D2E4C3)"/>
+  </apex:outputPanel>
+
+  <!-- ===== Markup ===== -->
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+         width="{!width}" style="margin-bottom:{!marginBottom};">
+    <tr>
+      <td style="
+          background-color:{!bgColor};
+          border:1px solid {!borderColor};
+          border-radius:8px;
+          padding:8px 12px;
+        ">
+        <span style="
+            color:{!textColor};
+            font-size:12px;
+            line-height:16px;
+            font-weight:400;
+            display:block;
+          ">
+          {!text}
+        </span>
+      </td>
+    </tr>
+  </table>
+
+</apex:component>

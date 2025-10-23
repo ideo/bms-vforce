@@ -1,0 +1,176 @@
+<apex:component >
+
+  <!-- ===== Attributes ===== -->
+  <apex:attribute name="headline" 
+    type="String" 
+    description="Main headline text" 
+    required="true"
+  />
+
+  <apex:attribute name="subcopy" 
+    type="String" 
+    description="Supporting subcopy text" 
+    required="false"
+  />
+
+  <apex:attribute name="productType"
+    type="String"
+    description="Controls theme colors: 'commercial', 'clinical', or 'security'"
+    required="true"
+  />
+  
+  <apex:attribute name="hasAction" 
+    type="Boolean" 
+    description="Whether the corresponding email has an action or not (controls text alignment)"
+    default="true"
+  />
+
+  <!-- Optional subcopy color override (e.g., var(--scarlet)) -->
+  <apex:attribute name="subcopyColor"
+    type="String"
+    description="Override color for subcopy, e.g. var(--scarlet)"
+    required="false"
+  />
+
+  <!-- ===== Theme Logic ===== -->
+  <!-- Default (commercial) -->
+  <apex:variable var="headlineColor"      value="var(--coomassie-blue, #144A8E)"/>
+  <apex:variable var="subcopyColorTheme"  value="var(--cornflower-steel, #5A81AF)"/>
+
+  <!-- Clinical override -->
+  <apex:outputPanel rendered="{!productType = 'clinical'}">
+    <apex:variable var="headlineColor"     value="var(--leafline, #35521D)"/>
+    <apex:variable var="subcopyColorTheme" value="var(--forest-moss, #609434)"/>
+  </apex:outputPanel>
+
+  <!-- Security override -->
+  <apex:outputPanel rendered="{!productType = 'security'}">
+    <apex:variable var="headlineColor"     value="var(--coomassie-blue, #144A8E)"/>
+    <apex:variable var="subcopyColorTheme" value="var(--stone-gray, #7B7B7B)"/>
+  </apex:outputPanel>
+
+  <!-- Compute effective subcopy color -->
+  <apex:variable var="effectiveSubcopyColor" value="{!subcopyColorTheme}"/>
+  <apex:outputPanel rendered="{!NOT(ISBLANK(subcopyColor))}">
+    <apex:variable var="effectiveSubcopyColor" value="{!subcopyColor}"/>
+  </apex:outputPanel>
+
+  <!-- ===== Headline and Subcopy Block ===== -->
+  <table 
+    role="presentation" 
+    cellpadding="0" 
+    cellspacing="0" 
+    border="0" 
+    width="100%" 
+    style="margin: 0 auto 24px auto;"
+  >
+
+    <!-- Headline -->
+    <tr>
+      <apex:outputPanel rendered="{!hasAction}" layout="none">
+        <td align="center" style="padding: 0 0 12px 0;">
+          <span 
+            class="headline"
+            style="
+              color: {!headlineColor};
+              font-family: 'Avenir', Arial, sans-serif;
+              font-size: 32px;
+              font-weight: 800;
+              line-height: 38.4px;
+              display: block;
+              text-align: center;
+            "
+          >
+            {!headline}
+          </span>
+        </td>
+      </apex:outputPanel>
+
+      <apex:outputPanel rendered="{!!hasAction}" layout="none">
+        <td align="left" style="padding: 0 0 12px 0;">
+          <span 
+            class="headline"
+            style="
+              color: {!headlineColor};
+              font-family: 'Avenir', Arial, sans-serif;
+              font-size: 32px;
+              font-weight: 800;
+              line-height: 38.4px;
+              display: block;
+              text-align: left;
+            "
+          >
+            {!headline}
+          </span>
+        </td>
+      </apex:outputPanel>
+    </tr>
+
+    <!-- Subcopy -->
+    <apex:outputPanel rendered="{!NOT(ISBLANK(subcopy))}" layout="none">
+      <tr>
+        <apex:outputPanel rendered="{!hasAction}" layout="none">
+          <td align="center">
+            <table 
+              role="presentation" 
+              cellpadding="0" 
+              cellspacing="0" 
+              border="0"
+              style="max-width: 400px; margin: 0 auto;"
+            >
+              <tr>
+                <td align="center">
+                  <span 
+                    style="
+                      color: {!effectiveSubcopyColor};
+                      font-family: 'Avenir', Arial, sans-serif;
+                      font-size: 12px;
+                      font-weight: 400;
+                      line-height: 16px;
+                      display: block;
+                      text-align: center;
+                    "
+                  >
+                    {!subcopy}
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </apex:outputPanel>
+
+        <apex:outputPanel rendered="{!!hasAction}" layout="none">
+          <td align="left">
+            <table 
+              role="presentation" 
+              cellpadding="0" 
+              cellspacing="0" 
+              border="0"
+              style="max-width: 400px;"
+            >
+              <tr>
+                <td align="left">
+                  <span 
+                    style="
+                      color: {!effectiveSubcopyColor};
+                      font-family: 'Avenir', Arial, sans-serif;
+                      font-size: 12px;
+                      font-weight: 400;
+                      line-height: 16px;
+                      display: block;
+                      text-align: left;
+                    "
+                  >
+                    {!subcopy}
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </apex:outputPanel>
+      </tr>
+    </apex:outputPanel>
+
+  </table>
+
+</apex:component>

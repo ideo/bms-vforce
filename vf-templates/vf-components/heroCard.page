@@ -1,0 +1,130 @@
+<apex:component >
+
+  <!-- ===== Required Content Attributes ===== -->
+  <apex:attribute name="illustrationSrc" type="String" required="true"
+                  description="URL for the hero illustration image"/>
+  <apex:attribute name="headline" type="String" required="true"
+                  description="Main headline text for the hero"/>
+  <apex:attribute name="subcopy" type="String" required="false"
+                  description="Supporting subcopy text for the hero (optional)"/>
+  <apex:attribute name="subcopyColor" type="String" required="false"
+                  description="Color of the subcopy text (optional)"/>
+  <apex:attribute name="buttonText" type="String" required="true"
+                  description="Primary CTA button text"/>
+  <apex:attribute name="buttonLink" type="String" required="true"
+                  description="Primary CTA button href link"/>
+  <apex:attribute name="productType" type="String" required="true"
+                  description="Controls theme: 'commercial', 'clinical', or 'security'"/>
+                  
+  <!-- Patient details (nested) -->                
+  <apex:attribute name="enrollmentId" type="String" required="false"
+                  description="Patient Enrollment ID value"/>
+  <apex:attribute name="joinId" type="String" required="false"
+                  description="Patient JOIN ID value"/>
+  <apex:attribute name="patientInitials" type="String" required="flase"
+                  description="Patient initials"/>
+  <apex:attribute name="physician" type="String" required="false"
+                  description="Treating physician name"/>
+
+  <!-- Security details -->
+  <apex:attribute name="securityLabel" type="String" required="false" default="User"
+                  description="Label text for security info (e.g., 'Username')"/>
+  <apex:attribute name="securityValue" type="String" required="false"
+                  description="Value text for security info (e.g., username value)"/>
+
+  <!-- Layout knobs -->
+  <apex:attribute name="pad" type="String" required="false" default="36px"
+                  description="Inner padding for hero card content"/>
+  <apex:attribute name="radius" type="String" required="false" default="12px"
+                  description="Border radius for hero card container"/>
+
+  <!-- ===== Progress Bar (optional) ===== -->
+  <apex:attribute name="showProgressBar" type="Boolean" required="false" default="true"
+                  description="If true, renders the progress bar below the hero card"/>
+  <apex:attribute name="progressDesktopSrc" type="String" required="false"
+                  description="Desktop progress bar image URL (required if showProgressBar=true)"/>
+  <apex:attribute name="progressMobileSrc" type="String" required="false"
+                  description="Mobile progress bar image URL (required if showProgressBar=true)"/>
+  <apex:attribute name="progressAlt" type="String" required="false" default="Progress bar"
+                  description="Alt text for the progress bar"/>
+
+  <!-- ===== THEME LOGIC ===== -->
+  <!-- Default (commercial) -->
+  <apex:variable var="headerBgColor" value="var(--ice-blue, #E2EDF8)"/>
+
+  <!-- Clinical override -->
+  <apex:outputPanel rendered="{!productType = 'clinical'}">
+    <apex:variable var="headerBgColor" value="var(--mist-green, #F0F6EB)"/>
+  </apex:outputPanel>
+
+  <!-- Security override -->
+  <apex:outputPanel rendered="{!productType = 'security'}">
+    <apex:variable var="headerBgColor" value="var(--ash-white, #F5F5F5)"/>
+  </apex:outputPanel>
+
+  <!-- ===== MARKUP ===== -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0; padding:0;">
+    <tr>
+      <td align="center" class="pad-0">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+               class="container cap-682 web round-12"
+               style="margin:0 auto; background-color:{!headerBgColor}; border-radius:{!radius};">
+          <tr>
+            <td class="pad-0">
+
+              <!-- HERO CARD -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" class="pad-0">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                           class="container cap-682 web" style="margin:0 auto;">
+                      <tr>
+                        <td class="hero-pad" style="padding:{!pad};">
+
+                          <!-- Illustration -->
+                          <c:illustration src="{!illustrationSrc}" />
+
+                          <!-- Headline + Subcopy -->
+                          <c:headlineBlock productType="{!productType}" hasAction="true" headline="{!headline}" subcopy="{!subcopy}" subcopyColor="{!subcopyColor}" />
+
+                          <!-- Primary Button -->
+                          <c:buttonPrimary productType="{!productType}" buttonText="{!buttonText}" buttonLink="{!buttonLink}"/>
+
+                          <!-- CONDITIONAL INFO BLOCK -->
+                          <apex:outputPanel rendered="{!productType != 'security'}">
+                            <c:patientDetails productType="{!productType}"
+                              enrollmentId="{!enrollmentId}"
+                              joinId="{!joinId}"
+                              patientInitials="{!patientInitials}"
+                              physician="{!physician}"
+                            />
+                          </apex:outputPanel>
+
+                          <apex:outputPanel rendered="{!AND(productType = 'security', NOT(ISBLANK(securityValue)))}">
+                            <c:securityInfo label="{!securityLabel}" value="{!securityValue}" />
+                          </apex:outputPanel>
+
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Progress Bar (optional) -->
+              <apex:outputPanel rendered="{!showProgressBar}">
+                <c:progressBar desktopSrc="{!progressDesktopSrc}"
+                  mobileSrc="{!progressMobileSrc}"
+                  alt="{!progressAlt}"
+                  productType="{!productType}"
+                />
+              </apex:outputPanel>
+
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</apex:component>

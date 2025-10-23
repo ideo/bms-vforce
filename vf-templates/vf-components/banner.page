@@ -1,0 +1,119 @@
+<apex:component >
+
+  <!-- ===== Required content ===== -->
+  <apex:attribute name="bannerType" type="String" required="true"
+                  description="Banner theme: 'warning' or 'reminder'"/>
+  <apex:attribute name="text" type="String" required="true"
+                  description="Banner message text"/>
+
+  <!-- Icon -->
+  <apex:attribute name="iconSrc" type="String" required="true"
+                  description="URL of the banner icon"/>
+  <apex:attribute name="iconAlt" type="String" required="false" default="Icon"
+                  description="Alt text for the icon"/>
+
+  <!-- Optional button -->
+  <apex:attribute name="showButton" type="Boolean" required="false" default="false"
+                  description="If true, renders an inline button on the right"/>
+  <apex:attribute name="buttonText" type="String" required="false" default="Confirm Patient Details"
+                  description="Button label"/>
+  <apex:attribute name="buttonLink" type="String" required="false" default="#"
+                  description="Button URL"/>
+
+  <!-- Layout knobs -->
+  <apex:attribute name="width" type="Integer" required="false" default="682"
+                  description="Outer banner width in pixels"/>
+  <apex:attribute name="pad" type="String" required="false" default="16px"
+                  description="Inner padding for banner content"/>
+  <apex:attribute name="radius" type="String" required="false" default="12px"
+                  description="Corner radius of banner"/>
+
+  <!-- ===== THEME LOGIC ===== -->
+  <!-- Defaults (reminder colors) -->
+  <apex:variable var="bgColor"     value="var(--porcelain-glow, #FFF9E9)"/>
+  <apex:variable var="borderColor" value="var(--light-buttercream, #FFE8A9)"/>
+  <apex:variable var="textColor"   value="var(--earthy-gold, #916B00)"/>
+
+  <!-- Button colors (used only when showButton=true) -->
+  <apex:variable var="btnBg"       value="var(--light-buttercream, #FFE8A9)"/>
+  <apex:variable var="btnText"     value="var(--earthy-gold, #916B00)"/>
+
+  <!-- Warning override -->
+  <apex:outputPanel rendered="{!bannerType = 'warning'}">
+    <apex:variable var="bgColor"     value="var(--linen-rose, #FDF4F4)"/>
+    <apex:variable var="borderColor" value="var(--peach-blossom, #F7D2D4)"/>
+    <apex:variable var="textColor"   value="var(--scarlet, #DA1E28)"/>
+
+    <!-- Optional: if you ever show a button with a warning banner, align it to the theme -->
+    <apex:variable var="btnBg"       value="var(--linen-rose, #FDF4F4)"/>
+    <apex:variable var="btnText"     value="var(--scarlet, #DA1E28)"/>
+  </apex:outputPanel>
+
+  <!-- ===== MARKUP ===== -->
+  <table
+    width="{!width}"
+    cellpadding="0"
+    cellspacing="0"
+    border="0"
+    role="presentation"
+    style="margin:0 auto; font-family:'Avenir', Arial, sans-serif;"
+    class="container cap-682 web round-12"
+  >
+    <tr>
+      <td
+        style="
+          background-color:{!bgColor};
+          border:1px solid {!borderColor};
+          border-radius:{!radius};
+          padding:{!pad};
+        "
+      >
+        <!-- Banner Content Container -->
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+          <tr>
+            <!-- Icon -->
+            <td width="24" valign="middle" style="padding-right:16px;">
+              <img
+                src="{!iconSrc}"
+                alt="{!iconAlt}"
+                width="24"
+                height="24"
+                style="display:block; width:24px; height:24px;"
+              />
+            </td>
+
+            <!-- Message -->
+            <td valign="middle">
+              <span
+                style="
+                  font-size:12px;
+                  color:{!textColor};
+                  font-weight:400;
+                  line-height:16px;
+                  margin:0;
+                  display:block;
+                "
+              >
+                {!text}
+              </span>
+            </td>
+
+            <!-- Optional Button (only renders when showButton=true) -->
+            <!-- Button cell -->
+            <apex:outputPanel rendered="{!showButton}" layout="none">
+              <td valign="middle" align="right" style="padding-left:16px; white-space:nowrap;">
+                <!-- Use your updated secondary button; 32px height/line-height is hard-coded there -->
+                <c:buttonSecondary bannerType="reminder"
+                  buttonText="{!buttonText}"
+                  buttonLink="{!buttonLink}"
+                />
+              </td>
+            </apex:outputPanel>
+
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</apex:component>

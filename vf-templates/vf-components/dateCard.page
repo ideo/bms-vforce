@@ -1,0 +1,109 @@
+<apex:component >
+
+  <!-- ===== Content attributes ===== -->
+  <apex:attribute name="productType" type="String" required="true"
+                  description="Theme: 'commercial', 'clinical', or 'security'"/>
+  <apex:attribute name="dayNumber" type="String" required="true"
+                  description="Left tile day number, e.g., '20'"/>
+  <apex:attribute name="monthAbbr" type="String" required="true"
+                  description="Left tile month abbreviation, e.g., 'SEPT'"/>
+  <apex:attribute name="rightDateText" type="String" required="true"
+                  description="Right-side main date text, e.g., 'Tue, Sept 20'"/>
+  <apex:attribute name="rightSubheadText" type="String" required="true"
+                  description="Right-side subhead text, e.g., 'Estimated Earliest Available'"/>
+
+  <!-- ===== Optional: inline chip rendering (uses c:updateChip) ===== -->
+  <apex:attribute name="showUpdatedChip" type="Boolean" required="false" default="true"
+                  description="If true, renders an 'Updated' chip inline next to the date"/>
+  <apex:attribute name="chipText" type="String" required="false" default="Updated"
+                  description="Text for the inline chip if shown"/>
+
+  <!-- ===== Theme variables ===== -->
+  <!-- Defaults/commercial/security -->
+  <apex:variable var="leftTextColor"   value="var(--coomassie-blue, #144A8E)"/>
+  <apex:variable var="topBarColor"     value="var(--frost-white, #E7EDF3)"/>
+  <apex:variable var="rightDataColor"  value="var(--coomassie-blue, #144A8E)"/>
+  <apex:variable var="rightSubColor"   value="var(--stone-gray, #7B7B7B)"/>
+
+  <!-- Clinical overrides -->
+  <apex:outputPanel rendered="{!productType = 'clinical'}">
+    <apex:variable var="leftTextColor"   value="var(--leafline, #35521D)"/>
+    <apex:variable var="topBarColor"     value="var(--pastel-green, #D2E4C3)"/>
+    <apex:variable var="rightDataColor"  value="var(--leafline, #35521D)"/>
+    <!-- rightSubColor remains stone-gray per spec -->
+  </apex:outputPanel>
+
+  <!-- ===== Card markup ===== -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+         style="max-width:640px; margin:0 auto;">
+    <tr>
+      <!-- Left Tile -->
+      <td valign="top" width="80" height="80">
+        <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+               style="background-color:var(--white, #FFFFFF); border-radius:12px; overflow:hidden;">
+          <tr>
+            <td height="12" style="background-color:{!topBarColor}; line-height:12px; font-size:0;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="68" style="padding:0;">
+              <table role="presentation" width="100%" height="68" cellpadding="0" cellspacing="0" border="0">
+                <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                <tr>
+                  <td align="center">
+                    <span style="color:{!leftTextColor}; font-size:28px; line-height:28px; font-weight:800; display:block;">
+                      {!dayNumber}
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                    <span style="color:{!leftTextColor}; font-size:14px; line-height:18px; font-weight:400; display:block;">
+                      {!monthAbbr}
+                    </span>
+                  </td>
+                </tr>
+                <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+
+      <!-- Right Text -->
+      <td valign="middle" style="padding:8px 24px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td style="padding:0 0 2px 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                <tr>
+                  <td valign="middle" style="white-space:nowrap;">
+                    <span style="color:{!rightDataColor}; font-size:14px; line-height:19px; font-weight:500;">
+                      {!rightDateText}
+                    </span>
+                  </td>
+
+                  <!-- Optional inline chip -->
+                  <apex:outputPanel rendered="{!showUpdatedChip}" layout="none">
+                    <td valign="middle" style="padding-left:6px; white-space:nowrap;">
+                      <c:chip productType="{!productType}" text="{!chipText}"/>
+                    </td>
+                  </apex:outputPanel>
+
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="color:{!rightSubColor}; font-size:12px; line-height:16px; font-weight:400; display:block;">
+                {!rightSubheadText}
+              </span>
+            </td>
+          </tr>
+        </table>
+      </td>
+
+    </tr>
+  </table>
+
+</apex:component>

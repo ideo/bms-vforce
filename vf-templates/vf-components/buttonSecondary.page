@@ -1,0 +1,66 @@
+<apex:component >
+
+  <!-- ===== Attributes ===== -->
+  <apex:attribute name="productType" type="String" required="false"
+                  description="Theme: 'commercial', 'clinical', or 'security'"/>
+  <apex:attribute name="bannerType" type="String" required="false"
+                  description="Banner theme: 'reminder' or 'warning'"/>
+  <apex:attribute name="buttonText" type="String" required="true"
+                  description="Secondary button label text"/>
+  <apex:attribute name="buttonLink" type="String" required="true"
+                  description="URL the button points to"/>
+  <apex:attribute name="radius" type="String" required="false" default="100px"
+                  description="Border radius for pill shape"/>
+
+  <!-- ===== Default Theme Colors ===== -->
+  <apex:variable var="fillColor"   value="var(--ash-white, #F5F5F5)"/>
+  <apex:variable var="strokeColor" value="var(--cloudy-sky, #D0DBE8)"/>
+  <apex:variable var="textColor"   value="var(--coomassie-blue, #144A8E)"/>
+
+  <!-- ===== Clinical Product Type ===== -->
+  <apex:outputPanel rendered="{!productType = 'clinical'}">
+    <apex:variable var="fillColor"   value="var(--ash-white, #F5F5F5)"/>
+    <apex:variable var="strokeColor" value="var(--pastel-green, #D2E4C3)"/>
+    <apex:variable var="textColor"   value="var(--leafline, #35521D)"/>
+  </apex:outputPanel>
+
+  <!-- ===== Reminder Banner Theme ===== -->
+  <apex:outputPanel rendered="{!bannerType = 'reminder'}">
+    <apex:variable var="fillColor"   value="var(--light-buttercream, #FFE8A9)"/>
+    <apex:variable var="strokeColor" value="var(--light-buttercream, #FFE8A9)"/>
+    <apex:variable var="textColor"   value="var(--earthy-gold, #916B00)"/>
+  </apex:outputPanel>
+
+  <!-- ===== Button Markup ===== -->
+  <table cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+    <tr>
+      <td align="center" valign="middle"
+          style="
+            background-color:{!fillColor};
+            border:1px solid {!strokeColor};
+            border-radius:{!radius};
+            padding:0;
+          ">
+        <a href="{!buttonLink}"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="
+             display:inline-block;
+             padding:0 14px;
+             height:32px;
+             line-height:32px;
+             color:{!textColor};
+             font-family:'Avenir', Arial, sans-serif;
+             font-size:12px;
+             font-weight:500;
+             text-decoration:none;
+             white-space:nowrap;
+             mso-line-height-rule:exactly;
+           ">
+          {!buttonText}
+        </a>
+      </td>
+    </tr>
+  </table>
+
+</apex:component>
