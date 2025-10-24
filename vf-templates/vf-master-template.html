@@ -1,0 +1,198 @@
+<apex:page >
+
+  <!-- Define product type once -->
+  <apex:variable var="productType" value="commercial"/>
+  
+  <!-- Global Styles -->
+  <c:emailStyles />
+
+  <!-- GLOBAL WRAPPER -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+         style="width:100%; background-color:#ffffff; margin:0; padding:0;">
+    <tr>
+      <td align="center" style="padding:0 8px;">
+
+        <!-- ======== START EMAIL CONTENT ======== -->
+
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+
+        <!-- Logo -->
+        <c:emailLogo />
+
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+
+        <!-- HERO CARD WITH ACTION -->
+        <c:heroCard productType="{!productType}"
+        
+          illustrationSrc="https://bms-emails.s3.us-east-1.amazonaws.com/illustrations/security.png"
+          headline="Headline"
+          subcopy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+          buttonText="Button Text"
+          buttonLink="https://www.ct360.com/s/login/?language=en_US&ec=302&startURL=%2Fs%2F"
+        
+          enrollmentId="ENR-013411"
+          joinId="9P95-51M67"
+          patientInitials="BP"
+          physician="Alex Lane"
+        
+          showProgressBar="true"
+          progressDesktopSrc="https://bms-emails.s3.us-east-1.amazonaws.com/progress-bar-01.svg"
+          progressMobileSrc="https://bms-emails.s3.us-east-1.amazonaws.com/progress-bar-mobile-04.svg"
+        />
+        
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+        
+        <!-- HERO CARD WITHOUT ACTION -->
+        <c:heroCardNoAction productType="{!productType}"
+        
+          illustrationSrc="https://bms-emails.s3.us-east-1.amazonaws.com/illustrations/security.png"
+          headline="Your account is locked due to too many login attempts."
+          subcopy="Please contact the Cell Therapy 360 Portal administrator to unlock your account at +1 888-805-4555 / scheduling@celltherapy360.com"
+          buttonText="Button Text (Ignore)"
+          buttonLink="https://www.ct360.com/s/login/?language=en_US&ec=302&startURL=%2Fs%2F"
+          
+          enrollmentId="ENR-013411"
+          joinId="9P95-51M67"
+          patientInitials="BP"
+          physician="Alex Lane"
+
+          showProgressBar="true"
+          progressDesktopSrc="https://bms-emails.s3.us-east-1.amazonaws.com/progress-bar-01.svg"
+          progressMobileSrc="https://bms-emails.s3.us-east-1.amazonaws.com/progress-bar-mobile-04.svg"
+        />
+
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+        
+        <c:banner bannerType="warning"
+          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/icon-warning-triangle.png"
+          iconAlt="Warning Icon"
+        />
+        
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+        
+        <!-- Detail section -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+               class="container cap-682 web round-12"
+               style="max-width:682px; margin:0 auto; background-color:var(--ash-white); border-radius:12px;">
+          <tr>
+            <td style="padding:20px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                     style="table-layout:fixed; border-collapse:collapse;">
+                <tr valign="top" style="vertical-align:top;">
+        
+                  <!-- LEFT column -->
+                  <td class="col-50">
+                    <c:detailCol productType="{!productType}"
+                      sectionHeader="Section Header"
+                      showDisclaimer="true"
+                      disclaimerText="*Disclaimer: scheduling times are estimated and subject to change."
+                      showSecondaryButton="true"
+                      secondaryButtonText="Manage Details"
+                      secondaryButtonLink="https://www.ct360.com/s/login">
+                      
+                      <!-- CARD 1 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:dateCard productType="{!productType}"
+                              dayNumber="20"
+                              monthAbbr="SEPT"
+                              rightDateText="Tue, Sept 20"
+                              rightSubheadText="Estimated Earliest Available"
+                              showUpdatedChip="true"
+                              chipText="Updated"
+                            />
+                          </td>
+                        </tr>
+                        
+                        <!-- CARD 2 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:dateCard productType="{!productType}"
+                              dayNumber="22"
+                              monthAbbr="SEPT"
+                              rightDateText="Thu, Sept 22"
+                              rightSubheadText="Scheduled Delivery"
+                              showUpdatedChip="false"
+                            />
+                          </td>
+                        </tr>
+                        
+                        <!-- CARD 3 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:infoCard productType="{!productType}"
+                              iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/icon-map-pin.svg"
+                              iconAlt="Location"
+                              dataText="Duke Univ Medical Ctr APH<br/>2400 Pratt St. Ste 1100<br/>Durham, NC 27705"
+                              labelText="Location"
+                            />
+                          </td>
+                        </tr>
+                    </c:detailCol>
+                  </td>
+        
+                  <!-- Fixed gap (hidden on mobile) -->
+                  <td class="gap-20">&nbsp;</td>
+        
+                  <!-- RIGHT column -->
+                  <td class="col-50 col-right">
+                    <c:detailCol productType="{!productType}"
+                      sectionHeader="Section Header"
+                      showDisclaimer="false"
+                      showSecondaryButton="false">
+                      
+                        <!-- CARD 1 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:infoCard productType="{!productType}"
+                              iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/icon-flask.svg"
+                              iconAlt="Quantity"
+                              dataText="2"
+                              labelText="Quantity"
+                            />
+                          </td>
+                        </tr>
+                        
+                        <!-- CARD 2 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:infoCard productType="{!productType}"
+                              iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/icon-ruler.svg"
+                              iconAlt="Container Size"
+                              dataText="8&quot; × 12&quot;"
+                              labelText="Container Size"
+                            />
+                          </td>
+                        </tr>
+                    </c:detailCol>
+                  </td>
+        
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <!-- End of Detail Section -->
+        
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+        
+        <c:emailFooter productType="{!productType}"
+          phoneLinkHref="https://celltherapy360.com/contact"
+          phoneLinkText="Global Phone Numbers"
+          loginHref="https://www.ct360.com/s/login"
+          manageHref="https://www.ct360.com/preferences"
+        />
+                
+        
+        <!-- ======== END EMAIL CONTENT ======== -->
+      </td>
+    </tr>
+  </table>
+</apex:page>

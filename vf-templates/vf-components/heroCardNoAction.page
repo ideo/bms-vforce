@@ -100,16 +100,6 @@
                                     subcopyColor="{!subcopyColor}"
                                   />
                 
-                                  <!-- Conditional Info Block -->
-                                  <apex:outputPanel rendered="{!productType != 'security'}">
-                                    <c:patientDetails productType="{!productType}"
-                                      enrollmentId="{!enrollmentId}"
-                                      joinId="{!joinId}"
-                                      patientInitials="{!patientInitials}"
-                                      physician="{!physician}"
-                                    />
-                                  </apex:outputPanel>
-                
                                   <!-- Security Info (if applicable) -->
                                   <apex:outputPanel rendered="{!AND(productType = 'security', NOT(ISBLANK(securityValue)))}">
                                     <c:securityInfo label="{!securityLabel}" 
@@ -120,6 +110,20 @@
                                 </td>
                               </tr>
                             </table>
+                            
+                            <!-- Spacer -->
+                            <c:spacer height="36"/>
+                
+                            <!-- Conditional Info Block (moved below layout) -->
+                            <apex:outputPanel rendered="{!productType != 'security'}">
+                              <c:patientDetails productType="{!productType}"
+                                enrollmentId="{!enrollmentId}"
+                                joinId="{!joinId}"
+                                patientInitials="{!patientInitials}"
+                                physician="{!physician}"
+                              />
+                            </apex:outputPanel>
+                
                 
                           </td>
                         </tr>
@@ -146,4 +150,3 @@
   </table>
 
 </apex:component>
-                                     
