@@ -67,8 +67,9 @@
 
     <!-- Headline -->
     <tr>
+      <!-- When hasAction is true -->
       <apex:outputPanel rendered="{!hasAction}" layout="none">
-        <td align="center" style="padding: 0 0 12px 0;">
+        <td align="center" valign="top" style="padding: 0 0 12px 0;">
           <span 
             class="headline"
             style="
@@ -85,24 +86,49 @@
           </span>
         </td>
       </apex:outputPanel>
-
+    
+      <!-- When hasAction is false -->
       <apex:outputPanel rendered="{!!hasAction}" layout="none">
-        <td align="left" style="padding: 0 0 12px 0;">
-          <span 
-            class="headline"
-            style="
-              color: {!headlineColor};
-              font-family: 'Avenir', Arial, sans-serif;
-              font-size: 32px;
-              font-weight: 700;
-              line-height: 38.4px;
-              display: block;
-              text-align: left;
-            "
-          >
-            {!headline}
-          </span>
-        </td>
+        <apex:outputPanel rendered="{!ISBLANK(subcopy)}" layout="none">
+          <!-- Center vertically if subcopy is blank -->
+          <td align="left" valign="middle" style="padding: 0 0 12px 0; height: auto;">
+            <span 
+              class="headline"
+              style="
+                color: {!headlineColor};
+                font-family: 'Avenir', Arial, sans-serif;
+                font-size: 32px;
+                font-weight: 700;
+                line-height: 38.4px;
+                display: table-cell;
+                vertical-align: middle;
+                text-align: left;
+              "
+            >
+              {!headline}
+            </span>
+          </td>
+        </apex:outputPanel>
+    
+        <apex:outputPanel rendered="{!NOT(ISBLANK(subcopy))}" layout="none">
+          <!-- Default top alignment when subcopy exists -->
+          <td align="left" valign="top" style="padding: 0 0 12px 0;">
+            <span 
+              class="headline"
+              style="
+                color: {!headlineColor};
+                font-family: 'Avenir', Arial, sans-serif;
+                font-size: 32px;
+                font-weight: 700;
+                line-height: 38.4px;
+                display: block;
+                text-align: left;
+              "
+            >
+              {!headline}
+            </span>
+          </td>
+        </apex:outputPanel>
       </apex:outputPanel>
     </tr>
 
@@ -174,3 +200,4 @@
   </table>
 
 </apex:component>
+                                     
