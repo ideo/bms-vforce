@@ -1,0 +1,198 @@
+<apex:component >
+
+  <!-- ===== Attributes ===== -->
+  <apex:attribute name="enrollmentId"     type="String" required="true"
+                  description="Enrollment ID value, e.g. ENR-013411"/>
+  <apex:attribute name="joinId"           type="String" required="true"
+                  description="JOIN ID value, e.g. 9P95-51M67"/>
+  <apex:attribute name="patientInitials"  type="String" required="true"
+                  description="Patient initials, e.g. BP"/>
+  <apex:attribute name="physician"        type="String" required="true"
+                  description="Treating Physician name, e.g. Alex Lane"/>
+
+  <!-- Optional styling knobs -->
+  <apex:attribute name="bgColor"          type="String" required="false"
+                  default="var(--white, #FFFFFF)"
+                  description="Background color of the details card"/>
+  <apex:attribute name="radius"           type="String" required="false"
+                  default="8px"
+                  description="Border radius for the details card"/>
+
+  <!-- Product type theming -->
+  <apex:attribute name="productType"      type="String" required="true"
+                  description="Controls theme colors: 'commercial' or 'clinical'"/>
+
+  <!-- ===== Theme Logic ===== -->
+  <!-- Default (commercial) -->
+  <apex:variable var="dividerColor" value="var(--cloudy-sky, #D0DBE8)"/>
+  <apex:variable var="labelColor"   value="var(--cornflower-steel, #5A81AF)"/>
+  <apex:variable var="dataColor"    value="var(--coomassie-blue, #144A8E)"/>
+
+  <!-- Clinical override -->
+  <apex:outputPanel rendered="{!productType = 'clinical'}">
+    <apex:variable var="dividerColor" value="var(--mist-green, #F0F6EB)"/>
+    <apex:variable var="labelColor"   value="var(--forest-moss, #609434)"/>
+    <apex:variable var="dataColor"    value="var(--leafline, #35521D)"/>
+  </apex:outputPanel>
+
+  <!-- ===== Markup ===== -->
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+         style="margin:0; padding:4px 0;">
+    <tr>
+      <td align="center" style="padding:0;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+               style="background-color:{!bgColor}; border-radius:{!radius};">
+          <tr>
+            <td style="padding:0;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr>
+
+                 <!-- Enrollment ID / Subject No. -->
+                    <td class="pill-col no-wrap" valign="middle" style="padding:0 6px; white-space:nowrap;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td style="padding:4px 4px 4px 0;">
+                            <span style="color:{!labelColor}; font-size:10.5px; font-weight:400; line-height:14px;">
+                              <apex:outputText rendered="{!productType = 'clinical'}">Subject No.</apex:outputText>
+                              <apex:outputText rendered="{!productType != 'clinical'}">Enrollment ID</apex:outputText>
+                            </span>
+                          </td>
+                    
+                          <!-- Right aligned when clinical -->
+                          <apex:outputPanel rendered="{!productType = 'clinical'}" layout="none">
+                            <td align="right" style="padding:4px 0; width:100%; text-align:right;">
+                              <span style="color:{!dataColor}; font-size:10.5px; font-weight:700; line-height:14px;">
+                                {!enrollmentId}
+                              </span>
+                            </td>
+                          </apex:outputPanel>
+                    
+                          <!-- Left aligned when commercial -->
+                          <apex:outputPanel rendered="{!productType != 'clinical'}" layout="none">
+                            <td style="padding:4px 0;">
+                              <span style="color:{!dataColor}; font-size:10.5px; font-weight:700; line-height:14px;">
+                                {!enrollmentId}
+                              </span>
+                            </td>
+                          </apex:outputPanel>
+                        </tr>
+                      </table>
+                    </td>
+                    
+                    <!-- JOIN ID -->
+                    <td class="pill-col no-wrap pill-border" valign="middle"
+                        style="padding:0 6px; border-left:2px solid {!dividerColor}; white-space:nowrap;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td style="padding:4px 4px 4px 0;">
+                            <span style="color:{!labelColor}; font-size:10.5px; font-weight:400; line-height:14px;">
+                              JOIN ID
+                            </span>
+                          </td>
+                    
+                          <!-- Right aligned when clinical -->
+                          <apex:outputPanel rendered="{!productType = 'clinical'}" layout="none">
+                            <td align="right" style="padding:4px 0; width:100%; text-align:right;">
+                              <span style="color:{!dataColor}; font-size:10.5px; font-weight:700; line-height:14px;">
+                                {!joinId}
+                              </span>
+                            </td>
+                          </apex:outputPanel>
+                    
+                          <!-- Left aligned when commercial -->
+                          <apex:outputPanel rendered="{!productType != 'clinical'}" layout="none">
+                            <td style="padding:4px 0;">
+                              <span style="color:{!dataColor}; font-size:10.5px; font-weight:700; line-height:14px;">
+                                {!joinId}
+                              </span>
+                            </td>
+                          </apex:outputPanel>
+                        </tr>
+                      </table>
+                    </td>
+                    
+
+                  <!-- Physician (commercial only) -->
+                  <apex:outputPanel rendered="{!productType != 'clinical'}" layout="none">
+                    <td class="pill-col no-wrap pill-border" valign="middle"
+                        style="padding:0 6px; border-left:2px solid {!dividerColor}; width:100%;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td style="padding:4px 0; white-space:nowrap;">
+                            <span style="color:{!labelColor}; font-size:10.5px; font-weight:400; line-height:14px;">
+                              Physician
+                            </span>
+                          </td>
+                          <td style="width:100%; text-align:right; padding:4px 0; white-space:nowrap;">
+                            <span style="color:{!dataColor}; font-size:10.5px; font-weight:700; line-height:14px;">
+                              {!physician}
+                            </span>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </apex:outputPanel>
+
+                  <!-- Patient Details -->
+                    <td valign="middle" class="pill-col no-wrap pill-border"
+                        style="padding:0 6px; border-left:2px solid {!dividerColor}; white-space:nowrap;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                          <td style="padding:4px 4px 4px 0; white-space:nowrap;">
+                            <span style="color:{!labelColor}; font-size:10.5px; font-weight:400; line-height:14px; padding-right:4px;">
+                              Patient Details
+                            </span>
+                          </td>
+                    
+                          <!-- ===== Commercial layout ===== -->
+                          <apex:outputPanel rendered="{!productType != 'clinical'}" layout="none">
+                            <td align="right" style="padding:4px 0; white-space:nowrap;">
+                              <span style="color:{!dataColor}; font-size:10.5px; font-weight:700; line-height:14px; padding-right:6px;">
+                                {!patientInitials}
+                              </span>
+                            </td>
+                            <td valign="middle" style="padding:4px 0; white-space:nowrap;">
+                              <a href="https://www.ct360.com/s/login/?language=en_US&ec=302&startURL=%2Fs%2F"
+                                 target="_blank"
+                                 style="text-decoration:underline; color:{!dataColor}; font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:700; line-height:14px;">
+                                View
+                                <img src="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/commercial/link-small.png"
+                                     alt="arrow-out"
+                                     width="14"
+                                     height="14"
+                                     style="display:inline-block; margin-left:2px; vertical-align:middle;" />
+                              </a>
+                            </td>
+                          </apex:outputPanel>
+                    
+                          <!-- ===== Clinical layout (right-aligned) ===== -->
+                          <apex:outputPanel rendered="{!productType = 'clinical'}" layout="none">
+                            <td align="right" style="padding:4px 0; width:100%; text-align:right; white-space:nowrap;">
+                              <a href="https://www.ct360.com/s/login/?language=en_US&ec=302&startURL=%2Fs%2F"
+                                 target="_blank"
+                                 style="text-decoration:underline; color:{!dataColor}; font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:700; line-height:14px;">
+                                View
+                                <img src="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/clinical/link-small.png"
+                                     alt="arrow-out"
+                                     width="14"
+                                     height="14"
+                                     style="display:inline-block; margin-left:2px; vertical-align:middle;" />
+                              </a>
+                            </td>
+                          </apex:outputPanel>
+                    
+                        </tr>
+                      </table>
+                    </td>
+
+
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</apex:component>

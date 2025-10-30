@@ -41,7 +41,7 @@
                     <span style="
                           color:var(--coomassie-blue, #144A8E);
                           font-family:'Avenir', Arial, sans-serif;
-                          font-size:12px; font-weight:800; line-height:16px;
+                          font-size:12px; font-weight:700; line-height:16px;
                           white-space:nowrap;">
                       {!value}
                     </span>

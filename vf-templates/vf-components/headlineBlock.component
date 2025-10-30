@@ -75,7 +75,7 @@
               color: {!headlineColor};
               font-family: 'Avenir', Arial, sans-serif;
               font-size: 32px;
-              font-weight: 800;
+              font-weight: 700;
               line-height: 38.4px;
               display: block;
               text-align: center;
@@ -94,7 +94,7 @@
               color: {!headlineColor};
               font-family: 'Avenir', Arial, sans-serif;
               font-size: 32px;
-              font-weight: 800;
+              font-weight: 700;
               line-height: 38.4px;
               display: block;
               text-align: left;
