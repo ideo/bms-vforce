@@ -1,0 +1,869 @@
+<apex:page >
+
+  <!-- Define product type once -->
+  <apex:variable var="productType" value="clinical"/>
+  
+  <!-- Global Styles -->
+  <style type="text/css">
+    body, table, td, div, span, a {
+      font-family: Avenir, Arial, sans-serif !important;
+    }
+
+    :root {
+      --coomassie-blue: #144A8E;
+      --cornflower-steel: #5A81AF;
+      --scarlet: #DA1E28;
+      --peach-blossom: #F7D2D4;
+      --linen-rose: #FDF4F4;
+      --cloudy-sky: #D0DBE8;
+      --frost-white: #E7EDF3;
+      --ice-blue: #E2EDF8;
+      --ash-white: #F5F5F5;
+      --midnight-ash: #222222;
+      --stone-gray: #7B7B7B;
+      --earthy-gold: #916B00;
+      --golden-yellow: #FFC72A;
+      --light-buttercream: #FFE8A9;
+      --porcelain-glow: #FFF9E9;
+      --leafline: #35521D;
+      --olive-grove: #4D7828;
+      --forest-moss: #609434;
+      --pastel-green: #D2E4C3;
+      --mist-green: #F0F6EB;
+      --black: #000000;
+      --white: #FFFFFF;
+    }
+
+    /* ====== RESPONSIVE RULES (714px breakpoint) ====== */
+    /* Helpers */
+    .container { width: 100% !important; margin: 0 auto !important; }
+    .cap-682 { max-width: 682px !important; }
+    .pad-x-16 { padding-left: 16px !important; padding-right: 16px !important; }
+    .pad-0 { padding: 0 !important; }
+    .round-0 { border-radius: 0px !important; overflow: hidden !important; }
+    .round-12 { border-radius: 12px !important; overflow: hidden !important; }
+    .img-fluid { width: 100% !important; height: auto !important; display: block !important; }
+    .show-desktop { display: none !important; }
+    .show-mobile { display: block !important; }
+    .hide-mobile { display: none !important; }
+    .col-50 { width: calc(50% - 10px) !important; vertical-align: top !important; }
+    .gap-20 { width: 20px !important; line-height: 0 !important; font-size: 0 !important; }
+    
+    /* Desktop / Web layout: lock width at and above 714px */
+    @media only screen and (min-width: 714px) {
+      .web { width: 682px !important; max-width: 682px !important; }
+      .cap-682 { max-width: 682px !important; }
+      .show-desktop { display: block !important; }
+      .show-mobile { display: none !important; }
+    }
+
+    /* Mobile layout: fluid below 714px */
+    @media only screen and (max-width: 713.98px) {
+      .web { width: 100% !important; max-width: 100% !important; }
+      .cap-682 { max-width: 100% !important; }
+      .pad-x-16 { padding-left: 12px !important; padding-right: 12px !important; }
+      .round-12 { border-radius: 12px !important; }
+      .img-fluid { width: 100% !important; height: auto !important; }
+      .hide-mobile { display: none !important; }
+      .show-mobile { display: block !important; }
+    }
+
+    /* Fixed-size progress bar on mobile (centered) */
+    @media only screen and (max-width: 713.98px) {
+      .progress-bar-mobile {
+        width: 100% !important;
+        max-width: 359px !important;
+        height: auto !important;
+        display: block !important;
+        margin: 0 auto !important;
+      }
+      .pill-col { display: block !important; width: 100% !important; padding: 6px 8px !important; }
+      .pill-border { border-left: 0 !important; }
+      .no-wrap { white-space: normal !important; }
+    }
+
+    /* Slightly reduce hero padding / headline size on very small screens */
+    @media only screen and (max-width: 375px) {
+      .hero-pad { padding: 20px !important; }
+      .headline { font-size: 24px !important; line-height: 30px !important; }
+    }
+    
+    /* Mobile: stack columns; hide gap; add top space to right column */
+    @media only screen and (max-width: 713.98px) {
+      .col-50 { display: block !important; width: 100% !important; }
+      .col-50[align="right"] { text-align: left !important; }
+      .gap-20 { display: none !important; width: 0 !important; }
+      .col-right { padding-top: 36px !important; } /* vertical gap when stacked */
+      .col-right--tight { padding-top: 0 !important; }
+    }
+    
+    /* ===== Footer Mobile Adjustments ===== */
+    @media only screen and (max-width: 713.98px) {
+      /* Stack the two columns and left-align right column content */
+      td.footer-col-right,
+      .footer-col-right {
+        text-align: left !important;
+        padding-top: 24px !important; /* spacing between contact and links */
+      }
+    
+      /* Ensure links stack cleanly */
+      .footer-col-right a {
+        display: block !important;
+        margin-top: 0px !important; /* small spacing between login &amp; manage links */
+        text-align: left !important; /* enforce left alignment */
+      }
+    }  
+  </style>
+
+
+  <!-- GLOBAL WRAPPER -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+         style="width:100%; background-color:#ffffff; margin:0; padding:0;">
+    <tr>
+      <td align="center" style="padding:0 8px;">
+
+        <!-- ======== START EMAIL CONTENT ======== -->
+
+        <!-- Spacer -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td style="height:8px; line-height:8px; font-size:0;">&nbsp;</td>
+          </tr>
+        </table>
+
+        <!-- Logo -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+               class="container cap-682 web" style="margin:0 auto; background-color:#ffffff;">
+          <tr>
+            <td class="pad-x-16">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="left" style="padding:8px 0;">
+                    <table cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                      <tr>
+                        <td valign="middle" style="padding-right:0px;">
+                          <apex:image value="https://bms-emails.s3.us-east-1.amazonaws.com/image-logo.svg"
+                                      alt="BMS Cell Therapy Logo"
+                                      width="128" height="39.4"
+                                      style="display:block; border:0; outline:none; text-decoration:none;" />
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Spacer -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td style="height:8px; line-height:8px; font-size:0;">&nbsp;</td>
+          </tr>
+        </table>
+        
+        <!-- HERO CARD WITHOUT ACTION -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0; padding:0;">
+          <tr>
+            <td align="center" class="pad-0">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                    class="container cap-682 web round-12"
+                    style="margin:0 auto; background-color:var(--mist-green,#F0F6EB); border-radius:12px;">
+                <tr>
+                  <td class="pad-0">
+
+                    <!-- HERO CARD -->
+                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td align="center" class="pad-0">
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                                  class="container cap-682 web" style="margin:0 auto;">
+                              <tr>
+                                <td class="hero-pad" style="padding: 36px;">
+                      
+                                  <!-- Horizontal Layout: Illustration (left) + Text (right) -->
+                                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr valign="top" style="vertical-align:top;">
+                                      <!-- Left: Illustration -->
+                                      <td width="140px" class="hero-illustration" align="center" style="padding-right:36px;">
+                                        <table 
+                                          role="presentation" 
+                                          cellpadding="0" 
+                                          cellspacing="0" 
+                                          border="0"
+                                          align="center" 
+                                          style="margin:0 auto 0 auto;"
+                                        >
+                                          <tr>
+                                            <td 
+                                              align="center" 
+                                              valign="middle" 
+                                              width="140" 
+                                              height="140"
+                                              style="width:140px; height:140px; border-radius:9999px; overflow:hidden;"
+                                            >
+                                              <img 
+                                                src="https://bms-emails.s3.us-east-1.amazonaws.com/illustrations/clinical-apheresis.png"
+                                                width="140" 
+                                                height="140" 
+                                                alt="Illustration"
+                                                style="display:block; width:140px; height:140px;" 
+                                              />
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                      
+                                      <!-- Right: Text content -->
+                                      <td width="100%" class="hero-text" align="left" style="padding-left:0;">
+                                        
+                                        <!-- Headline + Subcopy -->
+                                        <table 
+                                          role="presentation" 
+                                          cellpadding="0" 
+                                          cellspacing="0" 
+                                          border="0" 
+                                          width="100%" 
+                                          style="margin: 0 auto 24px auto;"
+                                        >
+                                          <!-- Headline -->
+                                          <tr>
+                                            <td align="left" valign="top" style="padding: 0 0 12px 0;">
+                                              <span 
+                                                class="headline"
+                                                style="
+                                                  color: var(--leafline, #35521D);
+                                                  font-family: 'Avenir', Arial, sans-serif;
+                                                  font-size: 32px;
+                                                  font-weight: 700;
+                                                  line-height: 38.4px;
+                                                  display: block;
+                                                  text-align: left;
+                                                "
+                                              >
+                                                Your patient’s Breyanzi apheresis appointment is confirmed.
+                                              </span>
+                                            </td>
+                                          </tr>
+
+                                          <!-- Subcopy -->
+                                          <tr>
+                                            <td align="left">
+                                              <table 
+                                                role="presentation" 
+                                                cellpadding="0" 
+                                                cellspacing="0" 
+                                                border="0"
+                                                style="max-width: 400px;"
+                                              >
+                                                <tr>
+                                                  <td align="left">
+                                                    <span 
+                                                      style="
+                                                        color: var(--forest-moss, #609434);
+                                                        font-family: 'Avenir', Arial, sans-serif;
+                                                        font-size: 12px;
+                                                        font-weight: 400;
+                                                        line-height: 16px;
+                                                        display: block;
+                                                        text-align: left;
+                                                      "
+                                                    >
+                                                      Please refer to the collection procedure for collection requirements.
+                                                    </span>
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  
+                                  <!-- Spacer -->
+                                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                      <td style="height:36px; line-height:36px; font-size:0;">&nbsp;</td>
+                                    </tr>
+                                  </table>
+                      
+                                  <!-- Patient Info (Clinical) -->
+                                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+                                        style="margin:0; padding:4px 0;">
+                                    <tr>
+                                      <td align="center" style="padding:0;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+                                              style="background-color:#FFFFFF; border-radius:8px;">
+                                          <tr>
+                                            <td style="padding:0;">
+                                              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                <tr>
+
+                                                  <!-- Subject No. -->
+                                                  <td class="pill-col no-wrap" valign="middle" style="padding:0 6px; white-space:nowrap;">
+                                                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                      <tr>
+                                                        <td style="padding:4px 4px 4px 0;">
+                                                          <span style="color:var(--forest-moss, #609434); font-size:10.5px; font-weight:400; line-height:14px;">
+                                                            Subject No.
+                                                          </span>
+                                                        </td>
+                                                        <td align="right" style="padding:4px 0; width:100%; text-align:right;">
+                                                          <span style="color:var(--leafline, #35521D); font-size:10.5px; font-weight:700; line-height:14px;">
+                                                            BB212MM003-113-23443232761
+                                                          </span>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </td>
+
+                                                  <!-- JOIN ID -->
+                                                  <td class="pill-col no-wrap pill-border" valign="middle"
+                                                      style="padding:0 6px; border-left:2px solid var(--mist-green, #F0F6EB); white-space:nowrap;">
+                                                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                      <tr>
+                                                        <td style="padding:4px 4px 4px 0;">
+                                                          <span style="color:var(--forest-moss, #609434); font-size:10.5px; font-weight:400; line-height:14px;">
+                                                            JOIN ID
+                                                          </span>
+                                                        </td>
+                                                        <td align="right" style="padding:4px 0; width:100%; text-align:right;">
+                                                          <span style="color:var(--leafline, #35521D); font-size:10.5px; font-weight:700; line-height:14px;">
+                                                            9P95-51M67
+                                                          </span>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </td>
+
+                                                  <!-- Patient Details -->
+                                                  <td valign="middle" class="pill-col no-wrap pill-border"
+                                                      style="padding:0 6px; border-left:2px solid var(--mist-green, #F0F6EB); white-space:nowrap;">
+                                                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                      <tr>
+                                                        <td style="padding:4px 4px 4px 0; white-space:nowrap;">
+                                                          <span style="color:var(--forest-moss, #609434); font-size:10.5px; font-weight:400; line-height:14px; padding-right:4px;">
+                                                            Patient Details
+                                                          </span>
+                                                        </td>
+                                                        <td align="right" style="padding:4px 0; width:100%; text-align:right; white-space:nowrap;">
+                                                          <a href="https://www.ct360.com/s/login/?language=en_US&amp;ec=302&amp;startURL=%2Fs%2F"
+                                                            target="_blank"
+                                                            style="text-decoration:underline; color:var(--leafline, #35521D); font-family:'Avenir', Arial, sans-serif; font-size:10.5px; font-weight:700; line-height:14px;">
+                                                            View
+                                                            <img src="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/clinical/link-small.png"
+                                                                alt="arrow-out"
+                                                                width="14"
+                                                                height="14"
+                                                                style="display:inline-block; margin-left:2px; vertical-align:middle;" />
+                                                          </a>
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </td>
+
+                                                </tr>
+                                              </table>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!-- End of Patient Details (Clinical) -->
+
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+
+
+                    <!-- Progress Bar -->
+                    <table 
+                      role="presentation"
+                      width="100%"
+                      cellpadding="0"
+                      cellspacing="0"
+                      border="0"
+                      class="container cap-682 web round-0"
+                      style="background-color: var(--pastel-green, #D2E4C3);"
+                    >
+                      <tr>
+                        <td align="center" class="pad-0">
+                          <!-- Desktop Progress Bar -->
+                          <img 
+                            src="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/progress-bars/clinical/enrollment-web.png"
+                            width="682"
+                            alt="Progress bar"
+                            class="show-desktop"
+                            style="display:block; width:682px; height:auto;"
+                          />
+
+                          <!-- Mobile Progress Bar -->
+                          <img 
+                            src="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/progress-bars/clinical/enrollment-mobile.png"
+                            width="359"
+                            alt="Progress bar"
+                            class="show-mobile progress-bar-mobile"
+                            style="display:block; width:344px; height:auto; margin:0 auto;"
+                          />
+                        </td>
+                      </tr>
+                    </table>
+                    <!-- End of Progress Bar -->
+
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <!-- END OF HERO CARD WITHOUT ACTION -->
+
+        <!-- Spacer -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td style="height:8px; line-height:8px; font-size:0;">&nbsp;</td>
+          </tr>
+        </table>
+        
+        <!-- Banner -->
+        <table
+            width="682"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            role="presentation"
+            style="margin:0 auto; font-family:'Avenir', Arial, sans-serif;"
+            class="container cap-682 web round-12"
+          >
+            <tr>
+              <td
+                style="
+                  background-color: var(--porcelain-glow, #FFF9E9); 
+                  border:1px solid var(--light-buttercream, #FFE8A9); 
+                  border-radius: 12px;
+                  padding: 16px;
+                "
+              >
+                <!-- Banner Content Container -->
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                  <tr>
+                    <!-- Icon -->
+                    <td width="24" valign="middle" style="padding-right:16px;">
+                      <img
+                        src="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/info-small.png"
+                        alt="Reminder Icon"
+                        width="24"
+                        height="24"
+                        style="display:block; width:24px; height:24px;"
+                      />
+                    </td>
+
+                    <!-- Message -->
+                    <td valign="middle">
+                      <span
+                        style="
+                          font-size:12px;
+                          color: var(--earthy-gold, #916B00); 
+                          font-weight:400;
+                          line-height:16px;
+                          margin:0;
+                          display:block;
+                        "
+                      >
+                        Please confirm the patient’s name and date of birth before the apheresis appointment.
+                      </span>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        <!-- End of Banner -->
+
+        <!-- Spacer -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td style="height:8px; line-height:8px; font-size:0;">&nbsp;</td>
+          </tr>
+        </table>
+        
+        <!-- Detail section -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+               class="container cap-682 web round-12"
+               style="max-width:682px; margin:0 auto; background-color:var(--ash-white); border-radius:12px;">
+          <tr>
+            <td style="padding:20px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                     style="table-layout:fixed; border-collapse:collapse;">
+                <tr valign="top" style="vertical-align:top;">
+        
+                  <!-- LEFT column -->
+                  <td class="col-50">
+
+                    <!-- Detail Column (Clinical) -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                          style="max-width:640px; background-color:var(--ash-white, #F5F5F5); margin:0 auto; padding:0;">
+                      <tr>
+                        <td style="padding:0;">
+
+                          <!-- Section Header -->
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                                style="margin-bottom:20px;">
+                            <tr>
+                              <td>
+                                <span style="color:var(--leafline, #35521D); font-size:14px; font-weight:500; display:block; line-height:32px;">
+                                  Appointment Details
+                                </span>
+                              </td>
+                            </tr>
+                          </table>
+
+                          <!-- CARD GROUP -->
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                                style="margin-bottom:4px;">
+                            <tr>
+                              <td style="padding-bottom:16px;">
+                                <!-- Date Card (Clinical) -->
+                                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                                      style="max-width:640px; margin:0 auto;">
+                                  <tr>
+                                    <!-- Left Tile -->
+                                    <td valign="top" width="80" height="80">
+                                      <table role="presentation" width="80" height="80" cellpadding="0" cellspacing="0" border="0"
+                                            style="background-color:var(--white, #FFFFFF); border-radius:12px; overflow:hidden;">
+                                        <tr>
+                                          <td height="12" style="background-color:var(--pastel-green, #D2E4C3); line-height:12px; font-size:0;">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                          <td height="68" style="padding:0;">
+                                            <table role="presentation" width="100%" height="68" cellpadding="0" cellspacing="0" border="0">
+                                              <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                                              <tr>
+                                                <td align="center">
+                                                  <span style="color:var(--leafline, #35521D); font-size:28px; line-height:28px; font-weight:700; display:block;">
+                                                    22
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td align="center">
+                                                  <span style="color:var(--leafline, #35521D); font-size:14px; line-height:18px; font-weight:400; display:block;">
+                                                    SEPT
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                              <tr><td height="11" style="font-size:0; line-height:11px;">&nbsp;</td></tr>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+
+                                    <!-- Right Text -->
+                                    <td valign="middle" style="padding:8px 24px;">
+                                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                        <!-- Date -->
+                                        <tr>
+                                          <td style="padding:0 0 2px 0;">
+                                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                                              <tr>
+                                                <td valign="middle" style="white-space:nowrap;">
+                                                  <span style="color:var(--leafline, #35521D); font-size:14px; line-height:19px; font-weight:500;">
+                                                    Tue, Sept 22
+                                                  </span>
+                                                </td>
+                                              </tr>
+                                            </table>
+                                          </td>
+                                        </tr>
+
+                                        <!-- Time -->
+                                        <tr>
+                                          <td style="padding:0;">
+                                            <span style="color:var(--leafline, #35521D); font-size:14px; line-height:19px; font-weight:500; display:block;">
+                                              9:00 AM
+                                            </span>
+                                          </td>
+                                        </tr>
+
+                                        <!-- Subhead -->
+                                        <tr>
+                                          <td>
+                                            <span style="color:var(--stone-gray, #7B7B7B); font-size:12px; line-height:16px; font-weight:400; display:block;">
+                                              Date &amp; Time
+                                            </span>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </table>
+                                <!-- End of Date Card (Clinical) -->
+
+                              </td>
+                            </tr>
+                          </table>
+
+                          <!-- Disclaimer -->
+                          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+                                style="margin-bottom:4px;">
+                            <tr>
+                              <td>
+                                <!-- Disclaimer Box (Clinical) -->
+                                <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+                                      width="311" style="margin-bottom:16px;">
+                                  <tr>
+                                    <td style="
+                                      background-color:var(--mist-green, #F0F6EB);
+                                      border:1px solid var(--pastel-green, #D2E4C3);
+                                      border-radius:8px;
+                                      padding:8px 12px;
+                                    ">
+                                      <span style="
+                                        color:var(--leafline, #35521D);
+                                        font-size:12px;
+                                        line-height:16px;
+                                        font-weight:400;
+                                        display:block;
+                                      ">
+                                        *Disclaimer: scheduling times are estimated and subject to change.
+                                      </span>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </table>
+
+                          <!-- Secondary Button  -->
+                          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr>
+                              <td align="left" valign="middle">
+                                <!-- Secondary Button (Clinical) -->
+                                <table cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
+                                  <tr>
+                                    <td align="center" valign="middle"
+                                        style="
+                                          background-color:var(--ash-white, #F5F5F5);
+                                          border:1px solid var(--pastel-green, #D2E4C3);
+                                          border-radius:100px;
+                                          padding:0;
+                                        ">
+                                      <a href="https://www.ct360.com/s/login"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style="
+                                          display:inline-block;
+                                          padding:0 14px;
+                                          height:32px;
+                                          line-height:32px;
+                                          color:var(--leafline, #35521D);
+                                          font-family:'Avenir', Arial, sans-serif;
+                                          font-size:12px;
+                                          font-weight:500;
+                                          text-decoration:none;
+                                          white-space:nowrap;
+                                          mso-line-height-rule:exactly;
+                                        ">
+                                        Manage Details
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </table>
+
+                        </td>
+                      </tr>
+                    </table>
+                    <!-- End of Detail Column (Clinical) -->
+                  </td>
+        
+                  <!-- Fixed gap (hidden on mobile) -->
+                  <td class="gap-20">&nbsp;</td>
+        
+                  <!-- RIGHT column -->
+                  <td class="col-50 col-right">
+                    <c:detailCol productType="{!productType}"
+                      sectionHeader="Collection Pickup Details"
+                      showDisclaimer="false"
+                      showSecondaryButton="false">
+                      
+                      <!-- CARD 1 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:dateCard productType="{!productType}"
+                              dayNumber="22"
+                              monthAbbr="SEPT"
+                              rightDateText="Tue, Sept 20"
+                              rightTimeText="9:00 AM"
+                              rightSubheadText="Date & Time"
+                              showUpdatedChip="false"
+                              chipText="Updated"
+                            />
+                          </td>
+                        </tr>
+                      
+                        <!-- CARD 2 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:infoCard productType="{!productType}"
+                              iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/clinical/location.png"
+                              iconAlt="Location"
+                              dataText="Duke Univ Medical Ctr APH<br/>2400 Pratt St. Ste 1100<br/>Durham, NC 27705"
+                              labelText="Location"
+                            />
+                          </td>
+                        </tr>
+                        
+                        <!-- CARD 3 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:infoCard productType="{!productType}"
+                              iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/clinical/contact-person.png"
+                              iconAlt="Contact"
+                              dataText="Michelle Ritchie"
+                              labelText="Contact"
+                            />
+                          </td>
+                        </tr>
+                    </c:detailCol>
+                  </td>
+        
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <!-- End of Detail Section -->
+        
+        <!-- Spacer -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td style="height:8px; line-height:8px; font-size:0;">&nbsp;</td>
+          </tr>
+        </table>
+
+        <!-- Email Footer -->
+        <table
+            role="presentation"
+            width="100%"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            class="container cap-682 web"
+            style="margin:0 auto; font-family:'Avenir', Arial, sans-serif; background-color:var(--white, #FFFFFF);"
+        >
+          <!-- Main Footer Content -->
+          <tr>
+            <td style="padding:24px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;">
+                <tr valign="top" style="vertical-align:top;">
+
+                  <!-- Left: Contact (stacks on mobile) -->
+                  <td class="col-50" align="left" style="vertical-align:top; padding-right:24px;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="padding-bottom:4px;">
+                          <span style="color:var(--midnight-ash, #222222); font-size:12px; font-weight:400; line-height:16px; display:block;">
+                            Cell Therapy 360 ®
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <a href="https://celltherapy360.com/contact" target="_blank" rel="noopener noreferrer"
+                            style="color:var(--olive-grove, #4D7828); font-size:12px; font-weight:400; line-height:16px; text-decoration:underline; display:block;">
+                            Global Phone Numbers
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+
+                  <!-- Gap (hidden on mobile by .gap-20 rule) -->
+                  <td class="gap-20">&nbsp;</td>
+
+                  <!-- Right: Links (stacks under contact on mobile) -->
+                  <td class="col-50 footer-col-right" align="right" style="vertical-align:top;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td align="right" style="padding-bottom:4px;">
+                          <a
+                            href="https://www.ct360.com/s/login"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style="color:var(--olive-grove, #4D7828); font-size:12px; font-weight:400; text-decoration:underline; line-height:16px; display:block;"
+                          >
+                            Log In to Cell Therapy 360 Portal
+                          </a>
+                        </td>
+                      </tr>
+
+                      <!-- Manage Preferences (hidden for security emails) -->
+                      <apex:outputPanel rendered="{!productType != 'security'}" layout="none">
+                        <tr>
+                          <td align="right">
+                            <a
+                              href="https://www.ct360.com/preferences"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style="color:var(--stone-gray, #7B7B7B); font-size:12px; font-weight:400; text-decoration:underline; line-height:16px; display:block;"
+                            >
+                              Manage Preferences
+                            </a>
+                          </td>
+                        </tr>
+                      </apex:outputPanel>
+                    </table>
+                  </td>
+
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Legal -->
+          <tr>
+            <td style="padding:0 24px 24px 24px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td>
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="padding-bottom:1px;">
+                          <span style="color:var(--stone-gray, #7B7B7B); font-size:10px; font-weight:400; line-height:14px; display:block;">
+                            © 2025 Bristol Myers Squibb Company.
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span style="color:var(--stone-gray, #7B7B7B); font-size:10px; font-weight:400; line-height:14px; display:block;">
+                            CELL THERAPY 360 and the related logo are trademarks of Celgene Corporation, a Bristol Myers Squibb Company
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <!-- End of Email Footer -->
+        
+
+        
+        <!-- ======== END EMAIL CONTENT ======== -->
+      </td>
+    </tr>
+  </table>
+</apex:page>

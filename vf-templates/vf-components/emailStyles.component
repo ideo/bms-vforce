@@ -90,6 +90,7 @@
       .col-50[align="right"] { text-align: left !important; }
       .gap-20 { display: none !important; width: 0 !important; }
       .col-right { padding-top: 36px !important; } /* vertical gap when stacked */
+      .col-right--tight { padding-top: 0 !important; }
     }
     
     /* ===== Footer Mobile Adjustments ===== */
@@ -113,3 +114,4 @@
 
   
 </apex:component>
+                                     
