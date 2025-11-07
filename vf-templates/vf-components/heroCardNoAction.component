@@ -21,10 +21,15 @@
                   description="Patient Enrollment ID value"/>
   <apex:attribute name="joinId" type="String" required="false"
                   description="Patient JOIN ID value"/>
-  <apex:attribute name="patientInitials" type="String" required="flase"
+  <apex:attribute name="patientInitials" type="String" required="false"
                   description="Patient initials"/>
   <apex:attribute name="physician" type="String" required="false"
                   description="Treating physician name"/>
+                  
+  <!-- NEW ATTRIBUTE -->
+  <apex:attribute name="showPatientDetails" type="Boolean" required="false" default="true"
+                  description="If false, hides the patient details bar (default: true)"/>                
+  
 
   <!-- Security details -->
   <apex:attribute name="securityLabel" type="String" required="false" default="User"
@@ -49,15 +54,10 @@
                   description="Alt text for the progress bar"/>
 
   <!-- ===== THEME LOGIC ===== -->
-  <!-- Default (commercial) -->
   <apex:variable var="headerBgColor" value="var(--ice-blue, #E2EDF8)"/>
-
-  <!-- Clinical override -->
   <apex:outputPanel rendered="{!productType = 'clinical'}">
     <apex:variable var="headerBgColor" value="var(--mist-green, #F0F6EB)"/>
   </apex:outputPanel>
-
-  <!-- Security override -->
   <apex:outputPanel rendered="{!productType = 'security'}">
     <apex:variable var="headerBgColor" value="var(--ash-white, #F5F5F5)"/>
   </apex:outputPanel>
@@ -73,65 +73,60 @@
             <td class="pad-0">
 
               <!-- HERO CARD -->
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                  <tr>
-                    <td align="center" class="pad-0">
-                      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
-                             class="container cap-682 web" style="margin:0 auto;">
-                        <tr>
-                          <td class="hero-pad" style="padding:{!pad};">
-                
-                            <!-- Horizontal Layout: Illustration (left) + Text (right) -->
-                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                              <tr valign="top" style="vertical-align:top;">
-                                <!-- Left: Illustration -->
-                                <td width="140px" class="hero-illustration" align="center" style="padding-right:36px;">
-                                  <c:illustration src="{!illustrationSrc}" hasAction="false" />
-                                </td>
-                
-                                <!-- Right: Text content -->
-                                <td width="100%" class="hero-text" align="left" style="padding-left:0;">
-                                  
-                                  <!-- Headline + Subcopy -->
-                                  <c:headlineBlock productType="{!productType}" 
-                                    headline="{!headline}" 
-                                    hasAction="false"
-                                    subcopy="{!subcopy}" 
-                                    subcopyColor="{!subcopyColor}"
-                                  />
-                
-                                  <!-- Security Info (if applicable) -->
-                                  <apex:outputPanel rendered="{!AND(productType = 'security', NOT(ISBLANK(securityValue)))}">
-                                    <c:securityInfo label="{!securityLabel}" 
-                                      value="{!securityValue}" 
-                                    />
-                                  </apex:outputPanel>
-                
-                                </td>
-                              </tr>
-                            </table>
-                            
-                            <!-- Spacer -->
-                            <c:spacer height="36"/>
-                
-                            <!-- Conditional Info Block (moved below layout) -->
-                            <apex:outputPanel rendered="{!productType != 'security'}">
-                              <c:patientDetails productType="{!productType}"
-                                enrollmentId="{!enrollmentId}"
-                                joinId="{!joinId}"
-                                patientInitials="{!patientInitials}"
-                                physician="{!physician}"
-                              />
-                            </apex:outputPanel>
-                
-                
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" class="pad-0">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                           class="container cap-682 web" style="margin:0 auto;">
+                      <tr>
+                        <td class="hero-pad" style="padding:{!pad};">
 
+                          <!-- Horizontal Layout: Illustration (left) + Text (right) -->
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" 
+                                 class="hero-noaction-stack">
+                            <tr valign="top" style="vertical-align:top;">
+                              <!-- Left: Illustration -->
+                              <td width="140px" class="hero-illustration" align="center" style="padding-right:36px;">
+                                <c:illustration src="{!illustrationSrc}" hasAction="false" />
+                              </td>
+
+                              <!-- Right: Text content -->
+                              <td width="100%" class="hero-text" align="left" style="padding-left:0;">
+                                <c:headlineBlock productType="{!productType}" 
+                                  headline="{!headline}" 
+                                  hasAction="false"
+                                  subcopy="{!subcopy}" 
+                                  subcopyColor="{!subcopyColor}"
+                                />
+
+                                <!-- Security Info (if applicable) -->
+                                <apex:outputPanel rendered="{!AND(productType = 'security', NOT(ISBLANK(securityValue)))}">
+                                  <c:securityInfo label="{!securityLabel}" 
+                                    value="{!securityValue}" 
+                                  />
+                                </apex:outputPanel>
+                              </td>
+                            </tr>
+                          </table>
+
+                          <!-- Conditional Info Block -->
+                          <apex:outputPanel rendered="{!AND(productType != 'security', showPatientDetails)}">
+                               <!-- Spacer -->
+                              <c:spacer height="36"/>
+                            <c:patientDetails productType="{!productType}"
+                              enrollmentId="{!enrollmentId}"
+                              joinId="{!joinId}"
+                              patientInitials="{!patientInitials}"
+                              physician="{!physician}"
+                            />
+                          </apex:outputPanel>
+
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
 
               <!-- Progress Bar (optional) -->
               <apex:outputPanel rendered="{!showProgressBar}">

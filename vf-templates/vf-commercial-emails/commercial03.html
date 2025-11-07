@@ -1,0 +1,182 @@
+<apex:page >
+
+  <!-- Define product type once -->
+  <apex:variable var="productType" value="commercial"/>
+  
+  <!-- Global Styles -->
+  <c:emailStyles />
+
+  <!-- GLOBAL WRAPPER -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+         style="width:100%; background-color:#ffffff; margin:0; padding:0;">
+    <tr>
+      <td align="center" style="padding:0 8px;">
+
+        <!-- ======== START EMAIL CONTENT ======== -->
+
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+
+        <!-- Logo -->
+        <c:emailLogo />
+
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+
+        
+        <!-- HERO CARD WITHOUT ACTION -->
+        <c:heroCardNoAction productType="{!productType}"
+        
+          illustrationSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/illustrations/commercial/apheresis.png"
+          headline="Breyanzi apheresis appointment confirmed."
+          subcopy="Please contact the apheresis center for any questions regarding collection requirements."
+          buttonText="Button Text (Ignore)"
+          buttonLink="https://www.ct360.com/s/login/?language=en_US&ec=302&startURL=%2Fs%2F"
+          
+          enrollmentId="ENR-013411"
+          joinId="9P95-51M67"
+          patientInitials="BP"
+          physician="Alexander Harrington"
+
+          showProgressBar="true"
+          progressDesktopSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/progress-bars/commercial/enrollment-web.png"
+          progressMobileSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/progress-bars/commercial/enrollment-mobile.png"
+        />
+
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+        
+        <c:banner bannerType="Reminder"
+          text="Please confirm the patient’s name and date of birth before the apheresis appointment."
+          iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/info-small.png"
+          iconAlt="Reminder Icon"
+          showButton="true"
+          buttonText="Confirm Patient Details"
+          buttonLink="https://www.ct360.com/s/login/?language=en_US&ec=302&startURL=%2Fs%2F"
+        />
+        
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+        
+        <!-- Detail section -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+               class="container cap-682 web round-12"
+               style="max-width:682px; margin:0 auto; background-color:var(--ash-white); border-radius:12px;">
+          <tr>
+            <td style="padding:20px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                     style="table-layout:fixed; border-collapse:collapse;">
+                <tr valign="top" style="vertical-align:top;">
+        
+                  <!-- LEFT column -->
+                  <td class="col-50">
+                    <c:detailCol productType="{!productType}"
+                      sectionHeader="Appointment Details"
+                      showDisclaimer="false"
+                      disclaimerText="*Disclaimer: scheduling times are estimated and subject to change."
+                      showSecondaryButton="false"
+                      secondaryButtonText="Manage Details"
+                      secondaryButtonLink="https://www.ct360.com/s/login">
+                      
+                      <!-- CARD 1 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:dateCard productType="{!productType}"
+                              dayNumber="20"
+                              monthAbbr="SEPT"
+                              rightDateText="Tue, Sept 20"
+                              rightTimeText="9:00 AM"
+                              rightSubheadText="Date & Time"
+                              showUpdatedChip="false"
+                              chipText="Updated"
+                            />
+                          </td>
+                        </tr>                        
+                        <!-- CARD 2 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:infoCard productType="{!productType}"
+                              iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/commercial/location.png"
+                              iconAlt="Location"
+                              dataText="Duke Univ Medical Ctr APH <br/> 2400 Pratt St. Ste 1100 <br/> Durham, NC 27705"
+                              labelText="Location"
+                            />
+                          </td>
+                        </tr>
+                    </c:detailCol>
+                  </td>
+        
+                  <!-- Fixed gap (hidden on mobile) -->
+                  <td class="gap-20">&nbsp;</td>
+        
+                  <!-- RIGHT column -->
+                  <td class="col-50 col-right">
+                    <c:detailCol productType="{!productType}"
+                      sectionHeader="Collection Pickup Details"
+                      showDisclaimer="false"
+                      showSecondaryButton="false">
+                      
+                        <!-- CARD 1 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:dateCard productType="{!productType}"
+                              dayNumber="22"
+                              monthAbbr="SEPT"
+                              rightDateText="Tue, Sept 22"
+                              rightTimeText="9:00 AM"
+                              rightSubheadText="Date & Time"
+                              showUpdatedChip="false"
+                              chipText="Updated"
+                            />
+                          </td>
+                        </tr>
+
+                        <!-- CARD 2 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:infoCard productType="{!productType}"
+                              iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/commercial/location.png"
+                              iconAlt="Location"
+                              dataText="Duke Univ Medical Ctr APH <br/> 2400 Pratt St. Ste 1100 <br/> Durham, NC 27705"
+                              labelText="Location"
+                            />
+                          </td>
+                        </tr>
+                        
+                        <!-- CARD 3 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:infoCard productType="{!productType}"
+                              iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/commercial/contact-person.png"
+                              iconAlt="Contact"
+                              dataText="Michelle Ritchie"
+                              labelText="Contact"
+                            />
+                          </td>
+                        </tr>
+                    </c:detailCol>
+                  </td>
+        
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <!-- End of Detail Section -->
+        
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+        
+        <c:emailFooter productType="{!productType}"
+          phoneLinkHref="https://celltherapy360.com/contact"
+          phoneLinkText="Global Phone Numbers"
+          loginHref="https://www.ct360.com/s/login"
+          manageHref="https://www.ct360.com/preferences"
+        />
+                
+        
+        <!-- ======== END EMAIL CONTENT ======== -->
+      </td>
+    </tr>
+  </table>
+</apex:page>

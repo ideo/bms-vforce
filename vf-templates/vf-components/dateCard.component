@@ -19,6 +19,8 @@
                   description="If true, renders an 'Updated' chip inline next to the date"/>
   <apex:attribute name="chipText" type="String" required="false" default="Updated"
                   description="Text for the inline chip if shown"/>
+  <apex:attribute name="chipState" type="String" required="false" default="default"
+                  description="Visual state of the chip: 'default' or 'warning'"/>
 
   <!-- ===== Theme variables ===== -->
   <!-- Defaults/commercial/security -->
@@ -88,7 +90,7 @@
                   <!-- Optional inline chip -->
                   <apex:outputPanel rendered="{!showUpdatedChip}" layout="none">
                     <td valign="middle" style="padding-left:6px; white-space:nowrap;">
-                      <c:chip productType="{!productType}" text="{!chipText}"/>
+                      <c:chip productType="{!productType}" text="{!chipText}" chipState="{!chipState}"/>
                     </td>
                   </apex:outputPanel>
                 </tr>

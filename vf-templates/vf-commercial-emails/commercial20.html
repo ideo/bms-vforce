@@ -1,0 +1,62 @@
+<apex:page >
+
+  <!-- Define product type once -->
+  <apex:variable var="productType" value="commercial"/>
+  
+  <!-- Global Styles -->
+  <c:emailStyles />
+
+  <!-- GLOBAL WRAPPER -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+         style="width:100%; background-color:#ffffff; margin:0; padding:0;">
+    <tr>
+      <td align="center" style="padding:0 8px;">
+
+        <!-- ======== START EMAIL CONTENT ======== -->
+
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+
+        <!-- Logo -->
+        <c:emailLogo />
+
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+
+        
+        <!-- HERO CARD WITHOUT ACTION -->
+        <c:heroCardNoAction productType="{!productType}"
+        
+          illustrationSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/illustrations/commercial/step-agnostic.png"
+          headline="Your Breyanzi purchase order submission has been received."
+          subcopy="If there are questions regarding this purchase order, a member of BMS Cell Therapy 360 Scheduling Team will contact your site."
+          buttonText="Button Text (Ignore)"
+          buttonLink="https://www.ct360.com/s/login/?language=en_US&ec=302&startURL=%2Fs%2F"
+          
+          enrollmentId="ENR-013411"
+          joinId="9P95-51M67"
+          patientInitials="BP"
+          physician="Alexander Harrington"
+
+          showProgressBar="false"
+          progressDesktopSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/progress-bars/commercial/enrollment-web.png"
+          progressMobileSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/progress-bars/commercial/enrollment-mobile.png"
+        />
+        
+        
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+        
+        <c:emailFooter productType="{!productType}"
+          phoneLinkHref="https://celltherapy360.com/contact"
+          phoneLinkText="Global Phone Numbers"
+          loginHref="https://www.ct360.com/s/login"
+          manageHref="https://www.ct360.com/preferences"
+        />
+                
+        
+        <!-- ======== END EMAIL CONTENT ======== -->
+      </td>
+    </tr>
+  </table>
+</apex:page>

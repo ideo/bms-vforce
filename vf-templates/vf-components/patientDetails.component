@@ -4,7 +4,7 @@
   <apex:attribute name="enrollmentId"     type="String" required="true"
                   description="Enrollment ID value, e.g. ENR-013411"/>
   <apex:attribute name="joinId"           type="String" required="true"
-                  description="JOIN ID value, e.g. 9P95-51M67"/>
+                  description="JOIN value, e.g. 9P95-51M67"/>
   <apex:attribute name="patientInitials"  type="String" required="true"
                   description="Patient initials, e.g. BP"/>
   <apex:attribute name="physician"        type="String" required="true"
@@ -44,7 +44,8 @@
                style="background-color:{!bgColor}; border-radius:{!radius};">
           <tr>
             <td style="padding:0;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+                       class="pill-stack-mobile" style="--divider-color:{!dividerColor};">
                 <tr>
 
                  <!-- Enrollment ID / Subject No. -->
@@ -53,7 +54,7 @@
                         <tr>
                           <td style="padding:4px 4px 4px 0;">
                             <span style="color:{!labelColor}; font-size:10.5px; font-weight:400; line-height:14px;">
-                              <apex:outputText rendered="{!productType = 'clinical'}">Subject No.</apex:outputText>
+                              <apex:outputText rendered="{!productType = 'clinical'}">Subject Number</apex:outputText>
                               <apex:outputText rendered="{!productType != 'clinical'}">Enrollment ID</apex:outputText>
                             </span>
                           </td>
@@ -86,7 +87,7 @@
                         <tr>
                           <td style="padding:4px 4px 4px 0;">
                             <span style="color:{!labelColor}; font-size:10.5px; font-weight:400; line-height:14px;">
-                              JOIN ID
+                              JOIN
                             </span>
                           </td>
                     

@@ -90,7 +90,6 @@
       .col-50[align="right"] { text-align: left !important; }
       .gap-20 { display: none !important; width: 0 !important; }
       .col-right { padding-top: 36px !important; } /* vertical gap when stacked */
-      .col-right--tight { padding-top: 0 !important; }
     }
     
     /* ===== Footer Mobile Adjustments ===== */
@@ -110,8 +109,83 @@
       }
     }  
     
+    /* Opt-in mobile stacking for Patient Details */
+    @media only screen and (max-width: 713.98px) {
+      /* Each pill becomes a full-width row */
+      .pill-stack-mobile .pill-col {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 2px 8px !important;
+      }
+    
+      /* Convert left divider into a top divider */
+      .pill-stack-mobile .pill-border {
+        border-left: 0 !important;
+        border-top: 2px solid var(--divider-color, #D0DBE8) !important;
+      }
+    
+      /* Ensure nested tables don't exceed container width */
+      .pill-stack-mobile .pill-col table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+      }
+    
+      /* Label stays left; data aligns right */
+      .pill-stack-mobile .pill-col td:first-child {
+        text-align: left !important;
+        width: auto !important;
+      }
+    
+      .pill-stack-mobile .pill-col td:not(:first-child) {
+        text-align: right !important;
+        width: auto !important;
+      }
+    
+      /* Prevent link or text overflow */
+      .pill-stack-mobile .pill-col span,
+      .pill-stack-mobile .pill-col a {
+        word-break: break-word !important;
+        max-width: 100% !important;
+      }
+    
+      /* Allow wrapping for long names or IDs */
+      .pill-stack-mobile .no-wrap {
+        white-space: normal !important;
+      }
+    }
+    
+    /* ===== No-Action Hero Stacking on Mobile ===== */
+    @media only screen and (max-width: 713.98px) {
+      table.no-action-stack {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+    
+      table.no-action-stack tr,
+      table.no-action-stack td {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+      }
+    
+      table.no-action-stack img {
+        display: block !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        max-width: 360px !important; /* adjust as desired */
+        height: auto !important;
+      }
+    
+      table.no-action-stack .headline {
+        text-align: center !important;
+      }
+    }
+
+    
+    
   </style>
 
   
 </apex:component>
-                                     

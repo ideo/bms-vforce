@@ -1,20 +1,30 @@
 <apex:component >
 
-  <!-- Attributes -->
+  <!-- ===== Attributes ===== -->
   <apex:attribute name="productType" type="String" required="true"
                   description="Theme: 'commercial', 'clinical', or 'security'"/>
   <apex:attribute name="text" type="String" required="false" default="Updated"
                   description="Chip label text"/>
+  <apex:attribute name="chipState" type="String" required="false" default="default"
+                  description="Visual state of the chip: 'default' or 'warning'"/>
 
-  <!-- Theme (default/commercial/security -> cloudy-sky + coomassie-blue; clinical -> pastel-green + leafline) -->
+  <!-- ===== Theme Defaults ===== -->
   <apex:variable var="chipBg"  value="var(--cloudy-sky, #D0DBE8)"/>
   <apex:variable var="chipTxt" value="var(--coomassie-blue, #144A8E)"/>
+
+  <!-- ===== Product Type Overrides ===== -->
   <apex:outputPanel rendered="{!productType = 'clinical'}">
     <apex:variable var="chipBg"  value="var(--pastel-green, #D2E4C3)"/>
     <apex:variable var="chipTxt" value="var(--leafline, #35521D)"/>
   </apex:outputPanel>
 
-  <!-- Chip markup (email-safe) -->
+  <!-- ===== Warning State Override ===== -->
+  <apex:outputPanel rendered="{!chipState = 'warning'}">
+    <apex:variable var="chipBg"  value="var(--peach-blossom, #F7D2D4)"/>
+    <apex:variable var="chipTxt" value="var(--scarlet, #DA1E28)"/>
+  </apex:outputPanel>
+
+  <!-- ===== Chip Markup ===== -->
   <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
     <tr>
       <td style="background-color:{!chipBg}; border-radius:4px; padding:2px 4px;">
@@ -26,3 +36,4 @@
   </table>
 
 </apex:component>
+                   

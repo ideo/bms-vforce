@@ -16,6 +16,10 @@
   <apex:attribute name="productType" type="String" required="true"
                   description="Controls theme: 'commercial', 'clinical', or 'security'"/>
                   
+  <!-- Optional Disclaimer Box -->            
+  <apex:attribute name="disclaimerText" type="String" required="false"
+                  description="Optional disclaimer text displayed below the primary button"/>
+                  
   <!-- Patient details (nested) -->                
   <apex:attribute name="enrollmentId" type="String" required="false"
                   description="Patient Enrollment ID value"/>
@@ -89,6 +93,18 @@
 
                           <!-- Primary Button -->
                           <c:buttonPrimary productType="{!productType}" buttonText="{!buttonText}" buttonLink="{!buttonLink}"/>
+                          
+                          <!-- Optional Disclaimer Box -->
+                            <apex:outputPanel rendered="{!NOT(ISBLANK(disclaimerText))}" layout="none">
+                              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+                                     style="margin-top:20px; margin-bottom:20px;">
+                                <tr>
+                                  <td>
+                                    <c:disclaimerBox productType="{!productType}" text="{!disclaimerText}" width="100%"/>
+                                  </td>
+                                </tr>
+                              </table>
+                            </apex:outputPanel>
 
                           <!-- CONDITIONAL INFO BLOCK -->
                           <apex:outputPanel rendered="{!productType != 'security'}">

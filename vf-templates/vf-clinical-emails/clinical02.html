@@ -1,0 +1,169 @@
+<apex:page >
+
+  <!-- Define product type once -->
+  <apex:variable var="productType" value="clinical"/>
+  
+  <!-- Global Styles -->
+  <c:emailStyles />
+
+  <!-- GLOBAL WRAPPER -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+         style="width:100%; background-color:#ffffff; margin:0; padding:0;">
+    <tr>
+      <td align="center" style="padding:0 8px;">
+
+        <!-- ======== START EMAIL CONTENT ======== -->
+
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+
+        <!-- Logo -->
+        <c:emailLogo />
+
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+        
+        <!-- HERO CARD WITHOUT ACTION -->
+        <c:heroCardNoAction productType="{!productType}"
+        
+          illustrationSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/illustrations/clinical/step-agnostic.png"
+          headline="Your patient’s Breyanzi delivery schedule confirmed."
+          subcopy=""
+          buttonText="Button Text (Ignore)"
+          buttonLink="https://www.ct360.com/s/login/?language=en_US&ec=302&startURL=%2Fs%2F"
+          
+          enrollmentId="BB212MM003-113-23443232761"
+          joinId="9P95-51M67"
+          patientInitials="BP"
+          physician="Alex Lane"
+
+          showProgressBar="false"
+          progressDesktopSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/progress-bars/clinical/enrollment-web.png"
+          progressMobileSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/progress-bars/clinical/enrollment-mobile.png"
+        />
+
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+        
+        <c:banner bannerType="warning"
+          text="Do not start lymphodepleting chemotherapy until you have received a notification that quality release processes are complete."
+          iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/icon-warning-triangle.png"
+          iconAlt="Warning Icon"
+        />
+        
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+        
+        <!-- Detail section -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+               class="container cap-682 web round-12"
+               style="max-width:682px; margin:0 auto; background-color:var(--ash-white); border-radius:12px;">
+          <tr>
+            <td style="padding:20px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                     style="table-layout:fixed; border-collapse:collapse;">
+                <tr valign="top" style="vertical-align:top;">
+        
+                  <!-- LEFT column -->
+                  <td class="col-50">
+                    <c:detailCol productType="{!productType}"
+                      sectionHeader="Estimated Dates*"
+                      showDisclaimer="true"
+                      disclaimerText="*Please note that any dates provided are estimates and may be subject to change. If date changes are required, you will be notified by BMS Cell Therapy 360 Scheduling Team."
+                      showSecondaryButton="false"
+                      secondaryButtonText="Manage Details"
+                      secondaryButtonLink="https://www.ct360.com/s/login">
+                      
+                      <!-- CARD 1 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:dateCard productType="{!productType}"
+                              dayNumber="20"
+                              monthAbbr="SEPT"
+                              rightDateText="Tue, Sept 20"
+                              rightSubheadText="Estimated Earliest Availability"
+                              showUpdatedChip="false"
+                              chipText="Updated"
+                            />
+                          </td>
+                        </tr>
+
+                    </c:detailCol>
+                  </td>
+        
+                  <!-- Fixed gap (hidden on mobile) -->
+                  <td class="gap-20">&nbsp;</td>
+        
+                  <!-- RIGHT column -->
+                  <td class="col-50 col-right">
+                    <c:detailCol productType="{!productType}"
+                      sectionHeader="Delivery Details*"
+                      showDisclaimer="false"
+                      showSecondaryButton="true"
+                      secondaryButtonText="Manage Details"
+                      secondaryButtonLink="https://www.ct360.com/s/login">
+                      
+                      <!-- CARD 1 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:dateCard productType="{!productType}"
+                              dayNumber="22"
+                              monthAbbr="SEPT"
+                              rightDateText="Tue, Sept 22"
+                              rightTimeText="9:00 AM"
+                              rightSubheadText="Date & Time"
+                              showUpdatedChip="false"
+                              chipText="Updated"
+                            />
+                          </td>
+                        </tr>
+                      
+                        <!-- CARD 2 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:infoCard productType="{!productType}"
+                              iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/clinical/location.png"
+                              iconAlt="Location"
+                              dataText="Duke Univ Medical Ctr APH<br/>2400 Pratt St. Ste 1100<br/>Durham, NC 27705"
+                              labelText="Location"
+                            />
+                          </td>
+                        </tr>
+                        
+                        <!-- CARD 3 -->
+                        <tr>
+                          <td style="padding-bottom:16px;">
+                            <c:infoCard productType="{!productType}"
+                              iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/clinical/contact-person.png"
+                              iconAlt="Contact"
+                              dataText="Michelle Ritchie"
+                              labelText="Contact"
+                            />
+                          </td>
+                        </tr>
+                    </c:detailCol>
+                  </td>
+        
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <!-- End of Detail Section -->
+        
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+        
+        <c:emailFooter productType="{!productType}"
+          phoneLinkHref="https://celltherapy360.com/contact"
+          phoneLinkText="Global Phone Numbers"
+          loginHref="https://www.ct360.com/s/login"
+          manageHref="https://www.ct360.com/preferences"
+        />
+                
+        
+        <!-- ======== END EMAIL CONTENT ======== -->
+      </td>
+    </tr>
+  </table>
+</apex:page>

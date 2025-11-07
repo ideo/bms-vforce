@@ -1,0 +1,150 @@
+<apex:page >
+
+  <!-- Define product type once -->
+  <apex:variable var="productType" value="commercial"/>
+  
+  <!-- Global Styles -->
+  <c:emailStyles />
+
+  <!-- GLOBAL WRAPPER -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+         style="width:100%; background-color:#ffffff; margin:0; padding:0;">
+    <tr>
+      <td align="center" style="padding:0 8px;">
+
+        <!-- ======== START EMAIL CONTENT ======== -->
+
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+
+        <!-- Logo -->
+        <c:emailLogo />
+
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+
+        <!-- HERO CARD WITHOUT ACTION -->
+        <c:heroCardNoAction productType="{!productType}"
+        
+          illustrationSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/illustrations/commercial/inquiry.png"
+          headline="Thank you for reaching out! Our team will get back to you as soon as we can. "
+          subcopy="For any urgent questions or concerns, call Cell Therapy 360 Scheduling."
+          buttonText="Button Text (Ignore)"
+          buttonLink="https://www.ct360.com/s/login/?language=en_US&ec=302&startURL=%2Fs%2F"
+          
+          showPatientDetails="false"
+
+          showProgressBar="false"
+          progressDesktopSrc="https://bms-emails.s3.us-east-1.amazonaws.com/progress-bar-01.svg"
+          progressMobileSrc="https://bms-emails.s3.us-east-1.amazonaws.com/progress-bar-mobile-04.svg"
+        />
+
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+ 
+        <!-- Inquiry Section -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+               class="container cap-682 web round-12"
+               style="max-width:682px; margin:0 auto; background-color:#F5F5F5; border-radius:12px;">
+          <tr>
+            <td style="padding:20px;">
+        
+              <!-- Section Header -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="color:#144A8E; font-size:14px; font-family:Avenir, Arial, sans-serif; font-weight:500; padding-bottom:20px; line-height:32px;">
+                    Inquiry Details
+                  </td>
+                </tr>
+              </table>
+        
+              <!-- Row 1 -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                     style="table-layout:fixed; border-collapse:collapse;">
+                <tr valign="top" style="vertical-align:top;">
+                  <!-- Card 1 -->
+                  <td class="col-50" style="padding-bottom:16px; padding-right:20px;">
+                    <c:infoCard productType="{!productType}"
+                      iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/commercial/id.png"
+                      iconAlt="JOIN"
+                      dataText="9P95-51M67"
+                      labelText="JOIN"
+                    />
+                  </td>
+        
+                  <!-- Card 2 -->
+                  <td class="col-50 col-right--tight" style="padding-bottom:16px; padding-left:0;">
+                    <c:infoCard productType="{!productType}"
+                      iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/commercial/product.png"
+                      iconAlt="Product"
+                      dataText="Breyanzi"
+                      labelText="Product"
+                    />
+                  </td>
+                </tr>
+              </table>
+        
+              <!-- Row 2 -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                     style="table-layout:fixed; border-collapse:collapse;">
+                <tr valign="top" style="vertical-align:top;">
+                  <!-- Card 3 -->
+                  <td class="col-50" style="padding-bottom:16px; padding-right:20px;">
+                    <c:infoCard productType="{!productType}"
+                      iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/commercial/topic.png"
+                      iconAlt="Topic"
+                      dataText="Product specifications"
+                      labelText="Topic"
+                    />
+                  </td>
+        
+                  <!-- Card 4 -->
+                  <td class="col-50 col-right--tight" style="padding-bottom:16px; padding-left:0;">
+                    <c:infoCard productType="{!productType}"
+                      iconSrc="https://bms-emails.s3.us-east-1.amazonaws.com/final-assets/icons/commercial/contact-method.png"
+                      iconAlt="Email"
+                      dataText="Email<br/>rsopariwala@ideo.com"
+                      labelText="Preferred Contact Method"
+                    />
+                  </td>
+                </tr>
+              </table>
+        
+              <!-- Optional Question/Issue -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                     style="margin-top:0; table-layout:fixed;">
+                <tr>
+                  <td style="padding:12px 12px 2px 12px; color:#7B7B7B; font-size:12px; font-family:Avenir, Arial, sans-serif; font-weight:500;">
+                    Question/Issue
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0 12px 12px 12px; color:#144A8E; font-size:14px; font-family:Avenir, Arial, sans-serif; font-weight:400; line-height:20px;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                  </td>
+                </tr>
+              </table>
+        
+            </td>
+          </tr>
+        </table>
+        <!-- End of Inquiry Section -->
+        
+        <!-- Spacer -->
+        <c:spacer height="8"/>
+        
+        <c:emailFooter productType="{!productType}"
+          phoneLinkHref="https://celltherapy360.com/contact"
+          phoneLinkText="Global Phone Numbers"
+          loginHref="https://www.ct360.com/s/login"
+          manageHref="https://www.ct360.com/preferences"
+        />
+                
+        
+        <!-- ======== END EMAIL CONTENT ======== -->
+      </td>
+    </tr>
+  </table>
+</apex:page>

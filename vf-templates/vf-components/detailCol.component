@@ -51,7 +51,7 @@
 
         <!-- Disclaimer (optional) -->
         <apex:outputPanel rendered="{!showDisclaimer}" layout="none">
-          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:4px;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:0px;">
             <tr>
               <td>
                 <c:disclaimerBox productType="{!productType}" text="{!disclaimerText}" width="311"/>
@@ -62,6 +62,10 @@
 
         <!-- Secondary Button (optional, right-aligned) -->
         <apex:outputPanel rendered="{!showSecondaryButton}" layout="none">
+        
+          <!-- Spacer -->
+          <c:spacer height="20"/>
+
           <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
             <tr>
               <td align="left" valign="middle">
